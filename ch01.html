@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-cn">
 
 <head>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -10,7 +10,7 @@
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.2.2.min.js"></script>
 
     <script src="js/common-sections.js"></script>
 </head>
@@ -29,11 +29,16 @@
 			  Encapsulation and Immutable Classes</h1>
 
                 <h3 style="text-align: center;"><i>Exam Objectives</i></h3>
-
+<p style="text-align: center;"><i><font size="2" color="blue">考点</font></i></p>
                 <p style="text-align: center;"><i>Implement encapsulation.<br />
+<font size="2" color="blue">实现封装。</font><br />
 			  Create and use singleton classes and immutable classes.<br />
+<font size="2" color="blue">创建使用单例和不可变类。</font><br />
 			  Develop code that uses static keyword on initialize blocks, variables, methods, and classes.<br />
-			  Develop code that uses final keyword.</i><br /></p>
+<font size="2" color="blue">编写包含static关键字的代码，并在初始化模块时使用变量、方法和类。</font><br />
+			  Develop code that uses final keyword.<br />
+<font size="2" color="blue">编写包含final关键字的代码。</font><br />
+</i></p>
 
             </div>
         </div>
@@ -46,8 +51,10 @@
         <div class="column">
 
             <h2>Encapsulation</h2>
+<font size="2" color="blue">封装</font>
 
             <p>As we know, Java is an object-oriented language, and all code must be inside a class.</p>
+<font size="2" color="blue">众所周知，java是一种面向对象的语言，所有的代码必须以类的方式呈现。</font><br />
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyClass</span></span> {<br />
 	  &nbsp; &nbsp; String myField = <span class="hljs-string">"you"</span>;<br />
@@ -57,12 +64,14 @@
 	  }</code></p>
 
             <p>Therefore, we have to create an object to use it:</p>
+<font size="2" color="blue">正因如此，我们首先需要创建对象。</font><br />
 
             <p><code class="java hljs">MyClass myClass = <span class="hljs-keyword">new</span> MyClass();<br />
 	  myClass.myField = <span class="hljs-string">"James"</span>;<br />
 	  myClass.myMethod();</code></p>
 
             <p>One important concept in object-oriented programming languages is encapsulation, the ability to hide or protect an object's data.</p>
+<font size="2" color="blue">在面向对象编程中，封装是很重要的概念，它可以隐藏和保护对象中的数据。</font><br />
 
             <p>Most of the time, when someone talks about encapsulation most people tend to think about private variables and public getters and setters and how overkilling this is, but actually, encapsulation is more than that, and it's helpful to create high-quality designs.</p>
 
@@ -328,10 +337,13 @@
             </table>
 
             <h2>What is a Singleton?</h2>
+<font size="2" color="blue">什么是单例？</font><br />
 
             <p>There will be times when you might want to have only one instance for a particular class. Such a class is a <i>singleton</i> class and is a design pattern.</p>
+<font size="2" color="blue">有时您可能需要让某个类只拥有唯一一个实例，这样的类就叫单例(<i>singleton</i>)类，这也是设计模式中的单例模式。</font><br />
 
             <p>There are some classes of Java that are written using the singleton pattern, for example:</p>
+<font size="2" color="blue">在Java中有一些是类是单例类，例如：</font><br />
 
             <ul>
                 <li><code>java.lang.Runtime</code></li>
@@ -340,11 +352,15 @@
             </ul>
 
             <p>In Java, broadly speaking, there are two ways to implement a singleton class:</p>
+<font size="2" color="blue">在Java中通常有两种方式来定义单例类：</font><br />
 
             <ul>
                 <li>With a <code>private</code> constructor and a <code>static</code> factory method</li>
+<font size="2" color="blue">使用私有(<code>private</code>)构造函数和静态(<code>static</code>)工厂方法</font><br />
 
                 <li>As an enum</li>
+<font size="2" color="blue">定义为枚举</font><br />
+
             </ul>
 
             <p>Let's start with the private constructor way. Although it might seem simple at first, it poses many challenges, all of them related to keeping only one instance of a singleton class through all the application life cycle.</p>
@@ -403,9 +419,9 @@
 	  }</code></p>
 
             <p>The first time this method is called, the instance will be created. But with this approach, we face another problem. In a multithreading environment, if two or more threads are executing this method in parallel, there's a significant risk of ending up with multiple instances of the class.</p>
-
+<font size="2" color="blue">首次调用此方法时将创建实例。但用这种方法会面临另一个问题。那就是在多线程环境中，如果有两个或多个线程并行执行此方法，则有可能定义多个实例，产生风险。</font><br />
             <p>One solution is to synchronize the method so only one thread at a time can access it.</p>
-
+<font size="2" color="blue">一种解决方法是使用synchronize关键字来定义方法，这样每次只允许一个线程来调用它。</font><br />
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span></span> {<br />
 	  <span class="hljs-keyword">&nbsp; &nbsp; private</span> <span class="hljs-keyword">static</span> Singleton instance;<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; private</span> <span class="hljs-title">Singleton</span><span class="hljs-params">()</span></span> { }<br />
@@ -418,10 +434,13 @@
 	  }</code></p>
 
             <p>The problem with this is that strictly speaking, is not very efficient. We only need synchronization the first time, when the instance is created, not every single time the method is called.</p>
+<font size="2" color="blue">但这样的问题在于，效率并不高。其实我们只需要在第一次创建实例时同步，而不是每次调用方法都进行同步。</font><br />
 
             <p>An improvement is to lock only the portion of the code that creates the instance. For this to work properly, we have to double check if the instance is <code>null</code>, one without locking (to check if the instance is already created), and then another one inside a <code>synchronized</code> block (to safely create the instance).</p>
+<font size="2" color="blue">改进方式是在创建实例的方法上加锁。为了能让他正常工作，我们必须严格检查实例是否为空，一个没有锁（检查实例是否已创建），然后再同步另一个实例（安全地创建实例）。</font><br />
 
             <p>Here's how this would look:</p>
+<font size="2" color="blue">就像下面这样：</font><br />
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span></span> {<br />
 	  <span class="hljs-keyword">&nbsp; &nbsp; private</span> <span class="hljs-keyword">static</span> Singleton instance;<br />
@@ -439,8 +458,10 @@
 	  }</code></p>
 
             <p>But again, this implementation is not perfect yet. This time, the problem is at the Java Virtual Machine (JVM) level. The JVM, or sometimes the compiler, can optimize the code by reordering or caching the value of variables (and not making the updates visible).</p>
+<font size="2" color="blue">但这还不够完美。问题在于Java虚拟机（JVM）。JVM和编译器可以通过重新排列或缓存变量值来优化代码（这是不可见的更改）。</font><br />
 
             <p>The solution is to use the <code>volatile</code> keyword, which guarantees that any read/write operation of a variable shared by many threads would be atomic and not cached.</p>
+<font size="2" color="blue">解决方法是使用<code>volatile</code>关键字，它能确保多个线程对变量进行任何读写操作都是原子的，而不缓存。</font><br />
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span></span> {<br />
 	  <span class="hljs-keyword">&nbsp; &nbsp; private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">volatile</span> Singleton instance;<br />
@@ -464,10 +485,13 @@
             <p>We'll review enums in Chapter 5, for now, just knowing that enums are singletons is enough.</p>
 
             <h2>Immutable Objects</h2>
+<font size="2" color="blue">不可变对象</font><br />
 
             <p>There will be other times when you might not want to modify the values or state of an object when used by multiple classes. Such an object will be an <i>immutable</i> object.</p>
+<font size="2" color="blue">有时您可能不希望在多个类使用时修改对象的值或状态。这样的对象就叫作不可变对象。</font><br />
 
             <p>There are some immutable classes in the Java JDK, for example:</p>
+<font size="2" color="blue">在JDK中有一些不可变对象类，例如：</font><br />
 
             <ul>
                 <li><code>java.lang.String</code></li>
@@ -476,26 +500,34 @@
             </ul>
 
             <p>Immutable objects cannot change after they are created. This means that they cannot have setter methods or <code>public</code> variables, so the only way to set its properties is through the constructor.</p>
+<font size="2" color="blue">不可变对象在创建之后不允许修改。这意味着不能有setter方法或<code>public</code>变量，因此设置其属性的惟一方法是通过构造函数。</font><br />
 
             <p>Immutability also means that if a method has to change the properties of the object, as the object or its values cannot change, it has to return a copy of the object with the new values (this is just how the <code>String</code> class works).</p>
 
             <p>Another point to consider is inheritance. If the immutable class can be inherited, the subclass can change the methods to modify the instances of the class, so an immutable class cannot allow this.</p>
 
             <p>In summary, an immutable object:</p>
+<font size="2" color="blue">总之，不可变对象需要具备以下特点：</font><br />
 
             <ul>
                 <li>Sets all of its properties through a constructor</li>
+<font size="2" color="blue">通过构造函数设置所有属性</font><br />
 
                 <li>Does not define setter methods</li>
+<font size="2" color="blue">不能定义setter方法</font><br />
 
                 <li>Declares all its attributes <code>private</code> (and sometimes <code>final</code>)</li>
+<font size="2" color="blue">所有属性必须声明为<code>private</code>（有时是<code>final</code>）</font><br />
 
                 <li>Has a class declared <code>final</code> to prevent inheritance</li>
+<font size="2" color="blue">类声明为<code>final</code>以防止继承</font><br />
 
                 <li>Protects access to any mutable state. For example, if it has a <code>List</code> member, either the reference cannot be accessible outside the object or a copy must be returned (the same applies if the object's content must change)</li>
+<font size="2" color="blue">防止对任何可变状态的访问。例如，如果它具有<code>List</code>成员对象，则该引用不能在对象外部访问，返回值为副本（假如必须修改这个对象的话）</font><br />
             </ul>
 
             <h2>The static Keyword</h2>
+<font size="2" color="blue">static关键字</font><br />
 
             <p>Think of something <code>static</code> as something belonging to the class and not to a particular instance of that class.</p>
 
@@ -578,6 +610,7 @@
             <p>Static classes will be covered in Chapter 3, but there's another construct that can be marked as <code>static</code>, an initializer block.</p>
 
             <p>A <code>static</code> (initializer) block looks like this:</p>
+<font size="2" color="blue">一个<code>static</code>(初始化)实例的例子：</font><br />
 
             <p><code class="java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Example</span></span> {<br />
 	  <span class="hljs-keyword">&nbsp; &nbsp; private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> number;<br />
@@ -595,10 +628,13 @@
             <p>In addition to that, <code>static</code> blocks cannot contain a <code>return</code> statement, and it's a compile-time error if the block cannot complete normally (for example, due to an uncaught exception).</p>
 
             <h2>Final Keyword</h2>
+<font size="2" color="blue">Final关键字</font><br />
 
             <p>The <code>final</code> keyword can be applied to variables, methods, and classes.</p>
+<font size="2" color="blue"><code>final</code>关键字可以用于变量，方法，和类。</font><br />
 
             <p>When <code>final</code> is applied to variables, you cannot change the value of the variable after its initialization. These variables can be attributes (static and non-static) or parameters. Final attributes can be initialized either when declared, inside a constructor, or inside an initializer block.</p>
+<font size="2" color="blue">当<code>final</code>关键字应用于变量时，您不能在初始化之后更改该变量的值。这些变量可以是属性（静态和非静态）或参数。可以在声明时、构造函数内，或初始化块(initializer block)内使用final属性。</font><br />
 
             <p><code class="java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Example</span></span> {<br />
 	  &nbsp; &nbsp;&nbsp;<span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> number = <span class="hljs-number">0</span>;<br />
