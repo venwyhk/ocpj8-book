@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-cn">
 
 <head>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -10,7 +10,7 @@
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.2.2.min.js"></script>
 
     <script src="js/common-sections.js"></script>
 </head>
@@ -24,7 +24,9 @@
             <div class="chapter-title">
 
                 <h1><i class="chapter">Chapter TWO</i><br />
-				Inheritance and Polymorphism</h1>
+				Inheritance and Polymorphism<br />
+<font size="2" color="blue">第二章<br />继承与多态</font>
+                </h1>
 
                 <p><br /></p>
 
@@ -46,14 +48,18 @@
         <div class="column">
 
             <h2>Inheritance</h2>
+<font size="2" color="blue">继承</font><br />
 
             <p>At the core of an object-oriented language, there's the concept of inheritance.</p>
+<font size="2" color="blue">继承是面向对象编程语言中的核心概念之一。</font><br />
 
             <p>In simple terms, inheritance refers to an&nbsp;<b>IS-A</b> relationship where a class (called superclass) provides common attributes and methods to derived or more specialized classes (called subclass).</p>
 
             <p>In Java, a class is only allowed to inherit from a single superclass (singular inheritance). Of course, the only exception is <code>java.lang.Object</code>, which has no superclass. This class is the superclass of all classes.</p>
+<font size="2" color="blue">在java中，一个类只能继承于一个基类（单继承）。但<code>java.lang.Object</code>是唯一的例外，它没有基类。它是所有类的基类。</font><br />
 
             <p>The keyword <code>extends</code> is used to specify this relationship. For example, a hammer <b>IS-A</b> tool, so we can model this as:</p>
+<font size="2" color="blue">使用<code>extends</code>关键字来定义这种关系。例如，一个Hammer（锤子）属于Tool（工具），我们可以这样定义这种关系：</font><br />
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Tool</span></span> {<br />
 	  <span class="hljs-keyword">&nbsp; &nbsp; public</span> <span class="hljs-keyword">int</span> size;<br />
@@ -64,6 +70,7 @@
 	  }</code></p>
 
             <p>As <code>size</code> is a <code>public</code> attribute, it's inherited by <code>Hammer</code>:</p>
+<font size="2" color="blue">因为<code>size</code>是<code>public</code>属性，所以<code>Hammer</code>继承了它：</font><br />
 
             <p><code class="java hljs">Hammer hammer = <span class="hljs-keyword">new</span> Hammer();<br />
 	  hammer.size = <span class="hljs-number">10</span>;</code></p>
@@ -84,25 +91,35 @@
 	  }</code></p>
 
             <p>There's no problem for attribute because we're creating a <b>NEW</b> attribute in Hammer that <b>HIDES</b> the one inherited from <code>Tool</code> when the name is the same.</p>
+<font size="2" color="blue">size属性没有问题，因为我们在Hammer中创建了一个<b>新</b>的size属性，当属性名称相同时，将会<b>隐藏</b><code>Tool</code>中的size属性。</font><br />
 
             <p>Here are the things you can do in a subclass:</p>
+<font size="2" color="blue">以下是可以在子类中做的事：</font><br />
 
             <ul>
                 <li>Inherited attributes can be used directly, just like any other.</li>
+<font size="2" color="blue">继承的属性可以像自身属性那样直接使用。</font><br />
 
                 <li>An attribute can be declared in the subclass with the same name as the one in the superclass, thus hiding it.</li>
+<font size="2" color="blue">可以在子类中声明与父类名称相同的属性，从而隐藏父类的属性。</font><br />
 
                 <li>New attributes that are not in the superclass can be declared in the subclass.</li>
+<font size="2" color="blue">可以在子类中声明新属性，而不在父类中声明。</font><br />
 
                 <li>Inherited methods can be directly used as they are.</li>
+<font size="2" color="blue">可以直接使用继承的方法。</font><br />
 
                 <li>A new instance method can be declared in the subclass that has the same signature as the one in the superclass, thus overriding it.</li>
+<font size="2" color="blue">新实例化（new instance）的方法可以覆盖一个相同的父类方法。</font><br />
 
                 <li>A new <code>static</code> method can be declared in the subclass that has the same signature as the one in the superclass, thus hiding it.</li>
+<font size="2" color="blue">新声明的静态(<code>static</code>)方法可以与父类方法相同，并会覆盖父类的该方法。</font><br />
 
                 <li>New methods that are not in the superclass can be declared in the subclass.</li>
+<font size="2" color="blue">新的方法可以只在子类中声明，而不在父类声明。</font><br />
 
                 <li>A constructor can be declared in the subclass that invokes the constructor of the superclass, either implicitly or by using the keyword <code>super</code>.</li>
+<font size="2" color="blue">子类的构造函数可以调用父类的构造函数，既可以隐式调用也使用<code>super</code>关键字来调用。</font><br />
             </ul>
 
             <p>So for methods, reducing their visibility is not allowed because they are handled in a different way, in other words, methods are either overridden or overloaded.</p>
@@ -112,12 +129,16 @@
             <p>Implementing an interface is in some ways is a type of inheritance because they have some common characteristics, but by doing it, the relationship becomes&nbsp;<b>HAS-A</b>. We'll talk more about them in Chapter 4.</p>
 
             <h2>Overloading and Overriding</h2>
+<font size="2" color="blue">重载与重写</font><br />
 
             <p>The difference between overloading and overriding has to do a lot with method signatures.</p>
+<font size="2" color="blue">在了解重载和重写的区别之前，需先理解方法标识。</font><br />
 
             <p>In a few words, the <i>method signature</i> is the name of the method and the list of its parameters (types and number of parameters included). Note that return types are not included in this definition.</p>
+<font size="2" color="blue">简而言之，方法标识（<i>method signature</i>）是指方法的名称和参数列表（包括参数类型和数量）。返回类型不包括在内。</font><br />
 
             <p>We talk about overloading when a method changes the method signature, by changing the list of parameters of another method (that might be inherited) while keeping the same name.</p>
+<font size="2" color="blue">下面我们讨论一下如何重载一个方法，方式是修改另一个方法的参数列表（可以是继承的方法），同时保留相同的方法名。</font><br />
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Hotel</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">reserveRoom</span><span class="hljs-params">(<span class="hljs-keyword">int</span> rooms)</span></span> { ... }<br />
@@ -136,6 +157,7 @@
 	  }</code></p>
 
             <p>Changing just the return type will generate a compile error:</p>
+<font size="2" color="blue">如果只修改返回类型，会编译错误：</font><br />
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreeStarHotel</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Hotel</span></span> {<br />
 	  <span class="hljs-comment">&nbsp; &nbsp; // Compile-time error, reserveRoom is seen as duplicated</span><br />
@@ -148,6 +170,7 @@
 	  }</code></p>
 
             <p>Exceptions in the <code>throws</code> clause are not considered when overloading, so again, changing just the exception list will throw a compile error:</p>
+<font size="2" color="blue">重载时不会考虑抛出（<code>throws</code>）的异常列表（方法标识不包括异常列表），所以仅更改异常列表会引发编译错误：</font><br />
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreeStarHotel</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Hotel</span></span> {<br />
 	  <span class="hljs-comment">&nbsp; &nbsp; // Compile-time error, reserveRoom is seen as duplicated</span><br />
@@ -162,10 +185,13 @@
 	  }</code></p>
 
             <p>When an overloaded method is called, the compiler has to decide which version of the method is going to call. The first obvious candidate is to call the method that exactly matches the number and types of the arguments. But what happens when there isn't an exact match?</p>
+<font size="2" color="blue">当调用重载方法时，编译器必须决定应该调用该方法的哪个版本。显然，参数的数量和类型完全匹配的方法肯定是首选。但是如果没有精确匹配到方法标识，会如何处理呢？</font><br />
 
             <p>The rule to remember is that Java will look for the <b>CLOSEST</b> match <b>FIRST</b> (this means a larger type, a superclass, an autoboxed type, or the <b>MORE</b> particular type).</p>
+<font size="2" color="blue">Java的处理规则是，选择<b>第一个</b>最为<b>匹配</b>的方法（当有larger的类型，父类，自动装载类，或<b>更多的</b>特定的类型时）。</font><br />
 
             <p>For example, when this class is executed:</p>
+<font size="2" color="blue">例如，运行以下代码：</font><br />
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Print</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">printType</span><span class="hljs-params">(<span class="hljs-keyword">short</span> param)</span></span> {<br />
@@ -195,6 +221,7 @@
 	  }</code></p>
 
             <p>The output is:</p>
+<font size="2" color="blue">输出：</font><br />
 
             <p><code class="java hljs">short<br />
 	  long<br />
@@ -202,20 +229,26 @@
 	  CharSequence</code></p>
 
             <p>In the first method call, the argument type is <code>byte</code>. There's no method taking a <code>byte</code>, so the closest larger type is <code>short</code>.</p>
+<font size="2" color="blue">调用第一个方法时，参数类型是<code>byte</code>。没有匹配参数为<code>byte</code>的方法，所以调用参数最接近它的larger类型为<code>short</code>的方法。</font><br />
 
             <p>In the second method call, the argument type is <code>int</code>. There's no method taking a <code>byte</code>, so the closest larger type is <code>long</code> (note that this has higher precedence than <code>Integer</code>).</p>
+<font size="2" color="blue">调用第二个方法时，参数类型为<code>int</code>。没有匹配参数为<code>int</code>的方法，所以调用参数最接近它的larger类型为<code>long</code>的方法（注意这比<code>Integer</code>类型的优先级更高）。</font><br />
 
             <p>In the third method call, the argument type is <code>Integer</code>. There's a method that takes an <code>Integer</code>, so this is called.</p>
+<font size="2" color="blue">调用第三个方法时，参数类型为<code>Integer</code>。匹配到一个方法参数为<code>Integer</code>的，所以就直接调用它。</font><br />
 
             <p>In the last method call, the argument type is <code>String</code>. There's no method taking a <code>String</code>, so the closest superclass is <code>CharSequence</code>.</p>
+<font size="2" color="blue">调用最后一个方法时，参数类型为<code>String</code>。没有匹配参数为<code>String</code>的方法，所以调用参数最接近它的父类型<code>CharSequence</code>的方法。</font><br />
 
             <p>If it can't find a match or if the compiler cannot decide because the call is ambiguous, a compile error is thrown. For example, considering the previous class, the following will cause an error because there isn't a larger type than <code>double</code> and it can't be autoboxed to an <code>Integer</code>:</p>
+<font size="2" color="blue">如果无法匹配类型，而且编译器也无法决定类型，那么将会编译不通过并抛出异常。例如下面的例子将编译错误，因为没有比<code>double</code>更larger的类型，而且也不能自动装载为<code>Integer</code>类型：</font><br />
 
             <p><code class="java hljs"><span class="hljs-comment">// Can't find a match</span><br />
 	  <span class="hljs-keyword">double</span> d = <span class="hljs-number">1.0</span>;<br />
 	  printType(d);</code></p>
 
             <p>The following is an example of an ambiguous call, assuming the methods:</p>
+<font size="2" color="blue">下面是一个模棱两可（ambiguous）的调用例子：</font><br />
 
             <p><code class="java hljs"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">printType</span><span class="hljs-params">(<span class="hljs-keyword">float</span> param,&nbsp;<br /></span></span><span class="hljs-function"><span class="hljs-params"><span class="hljs-keyword">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; double</span> param2)</span></span> {<br />
 	  &nbsp; &nbsp; System.out.println(<span class="hljs-string">"float-double"</span>);<br />
@@ -258,8 +291,10 @@
             <p>If a <code>static</code> method with the same signature as a <code>static</code> method in the superclass is defined in the subclass, then the method is <b>HIDDEN</b> instead of overridden.</p>
 
             <p>There are some rules when overriding a method.</p>
+<font size="2" color="blue">重写方法需要遵循一些规则。</font><br />
 
             <p>The access modifier must be the same or with more visibility:</p>
+<font size="2" color="blue">访问修饰符必须相同或具有更高的可视性：</font><br />
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Hotel</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">reserveRoom</span><span class="hljs-params">(<span class="hljs-keyword">int</span> rooms)</span></span> {<br />
@@ -274,6 +309,7 @@
 	  }</code></p>
 
             <p>The return type must be the same or a subtype:</p>
+<font size="2" color="blue">返回类型必须相同或是其子类型：</font><br />
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Hotel</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; public</span> Integer <span class="hljs-title">reserveRoom</span><span class="hljs-params">(<span class="hljs-keyword">int</span> rooms)</span></span> {<br />
@@ -289,6 +325,7 @@
 	  }</code></p>
 
             <p>Exceptions in the <code>throws</code> clause must be the same, less, or subclasses of those exceptions:</p>
+<font size="2" color="blue">抛出（<code>throws</code>）语句中的异常类型必须是相同的、小于或属于该异常的子类：</font><br />
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Hotel</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">reserveRoom</span><span class="hljs-params">(<span class="hljs-keyword">int</span> rooms)</span><br />
@@ -370,6 +407,7 @@
             <p>In a few words, define the method just as it appears in the <code>java.lang.Object</code> class.</p>
 
             <h2>Polymorphism</h2>
+<font size="2" color="blue">多态</font><br />
 
             <p>Polymorphism is the ability for an object to vary its behavior based on its type. This is best demonstrated with an example:</p>
 
@@ -422,6 +460,7 @@
             <p>In contrast, overloading is also called&nbsp;<i>static polymorphism</i>&nbsp;because it's resolved at <b>COMPILE</b> time.</p>
 
             <h2>Abstract classes and methods</h2>
+<font size="2" color="blue">抽象类与方法</font><br />
 
             <p>If we examine the previous example, I think we'll agree that the implementation of the <code>dress()</code> method in the class <code>HumanBeing</code> doesn't sound exactly right.</p>
 
@@ -450,32 +489,38 @@
             <p>Here are the rules when working with <code>abstract</code> methods and classes:</p>
 
             <p>The <code>abstract</code> keyword can only be applied to classes or non-static methods.</p>
+<font size="2" color="blue"><code>abstract</code>关键字只能应用于类或非静态方法。</font><br />
 
             <p><code class="java hljs"><span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AClass</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-comment">&nbsp; &nbsp; // Compile-time error<br /></span><span class="hljs-keyword">&nbsp; &nbsp; public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">AMethod</span><span class="hljs-params">()</span></span>;<br />
 	  }</code></p>
 
             <p>An <code>abstract</code> class doesn't need to declare abstract methods to be declared abstract.</p>
+<font size="2" color="blue"><code>abstract</code>类不需要声明抽象方法。</font><br />
 
             <p><code class="java hljs"><span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AClass</span></span> { } <span class="hljs-comment">// No problem</span></code></p>
 
             <p>If a class includes <code>abstract</code> methods, then the class itself must be declared abstract.</p>
+<font size="2" color="blue">如果类包含<code>abstract</code>方法，那么该类必须声明为抽象类。</font><br />
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AClass</span></span> { <span class="hljs-comment">// Compile-time error</span><br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">AMethod</span><span class="hljs-params">()</span></span>;<br />
 	  }</code></p>
 
             <p>If the subclass of an <code>abstract</code> class doesn't provide an implementation for all <code>abstract</code> methods, the subclass must also be&nbsp;declared <code>abstract</code>.</p>
+<font size="2" color="blue">如果<code>abstract</code>类的子类不能为所有<code>abstract</code>方法提供实现，那么该子类也必须声明为<code>abstract</code>类。</font><br />
 
             <p><code class="java hljs"><span class="hljs-comment">// Compile-time error<br /></span><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Man</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HumanBeing</span></span> { }</code></p>
 
             <p>Methods of an interface are considered abstract, so an <code>abstract</code> class that implements an interface can implement some or none of the interface methods.</p>
+<font size="2" color="blue">接口的方法被认为是抽象的，所以实现接口的<code>abstract</code>类可以实现该接口的一部分方法或全部方法。</font><br />
 
             <p><code class="java hljs"><span class="hljs-comment">// No problem<br /></span><span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AClass</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span></span> {}</code></p>
 
 
 
             <h2>Key Points</h2>
+<font size="2" color="blue">知识点</font><br />
 
             <ul>
                 <li>Inheritance refers to an I<b>S-A</b> relationship where a class (called superclass) provides common attributes and methods to derived or more specialized classes (called subclass).</li>
