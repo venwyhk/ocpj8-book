@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-cn">
 
 <head>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -10,7 +10,7 @@
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.2.2.min.js"></script>
 
     <script src="js/common-sections.js"></script>
 </head>
@@ -24,7 +24,9 @@
             <div class="chapter-title">
 
                 <h1><i class="chapter">Chapter THREE</i><br />
-				Inner Classes</h1>
+				Inner Classes<br />
+<font size="2" color="blue">第三章<br />内部类</font>
+                </h1>
 
                 <p><br /></p>
 
@@ -43,14 +45,17 @@
         <div class="column">
 
             <h2>Classes</h2>
+<font size="2" color="blue">类</font>
 
             <p>In Java we have classes:</p>
+<font size="2" color="blue">Java中的类是这样的：</font>
 
             <p><code class="hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Computer&nbsp;</span></span>{<br />
 	  <br />
 	  }</code></p>
 
             <p>Classes have two types of members, attributes (or fields) and methods (or functions):<br /></p>
+<font size="2" color="blue">类有两种成员，分别为：属性（或字段）和方法（或函数）：</font>
 
             <p><code class="hljs"><span class="hljs-keyword">class</span> <span class="hljs-title">Computer</span> {<br />
 	  &nbsp; &nbsp; &nbsp;<span class="hljs-keyword">int</span> serialNumber;<br />
@@ -59,6 +64,7 @@
 	  }</code></p>
 
             <p>This way, our programs are a collection of classes.<br /></p>
+<font size="2" color="blue">我们的程序就是一个类的集合。</font>
 
             <p><code class="hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Computer</span></span> {<br />
 	  &nbsp; &nbsp; &nbsp;<span class="hljs-comment">// Here goes the definition of the class<br /></span>}<br />
@@ -70,10 +76,13 @@
 	  &nbsp; &nbsp; &nbsp;<span class="hljs-comment">// Here goes the definition of the class<br /></span>}</code></p>
 
             <h2>Inner classes<br /></h2>
+<font size="2" color="blue">内部类</font>
 
             <p>Java gives us flexibility in the way we can design our classes.</p>
+<font size="2" color="blue">Java为我们提供了灵活的方式来设计类。</font>
 
             <p>For this, there's a third type of member a class can have, an <b>INNER CLASS</b>.<br /></p>
+<font size="2" color="blue">应此，Java类可以有第三种成员，<b>内部类</b>。</font>
 
             <p><code class="hljs"><span class="hljs-keyword">class</span> <span class="hljs-title">Computer</span> {<br />
 	  &nbsp; &nbsp; &nbsp;String serialNumber;<br />
@@ -96,6 +105,7 @@
 	  }</code></p>
 
             <p>Another thing. We always talk about inner <b>CLASSES</b>, but actually, we can have inner <b>ABSTRACT CLASSES</b>, inner <b>INTERFACES</b>, and inner <b>ENUMS</b>.</p>
+<font size="2" color="blue">另外，虽然我们总是说内部类，但实际上可以是内部<b>抽象类</b>，内部<b>接口</b>和内部<b>枚举</b>。</font>
 
             <p><code class="hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Computer</span> {<br /></span>&nbsp; &nbsp; &nbsp;<span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Processor</span> {</span> }<br />
 	  &nbsp; &nbsp; &nbsp;<span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Pluggable</span> {</span> }<br />
@@ -104,6 +114,7 @@
 	  }</code></p>
 
             <p>But we are going to focus on simple inner classes. There are four types of them:</p>
+<font size="2" color="blue">我们将通过以下几种类型来讨论内部类：</font>
 
             <ul>
                 <li><b>STATIC</b> inner classes<br /></li>
@@ -117,6 +128,7 @@
             <hr />
 
             <h4><i>Defining a static inner class</i></h4>
+<font size="2" color="blue">定义一个静态内部类</font>
 
             <p><i><code class="hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Computer</span></span> {<br />
 	  &nbsp; &nbsp; &nbsp;<span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Mouse</span></span> {<br />
@@ -124,21 +136,27 @@
 	  }</code></i></p>
 
             <h4><i>Using a static inner class</i></h4>
+<font size="2" color="blue">使用这个静态内部类</font>
+
 
             <p><i><code class="hljs"><span class="hljs-type">Computer</span>.<span class="hljs-type">Mouse</span> m = <span class="hljs-keyword">new</span> <span class="hljs-type">Computer</span>.<span class="hljs-type">Mouse</span><span class="hljs-literal">()</span>;</code></i></p>
 
             <p><i>Static inner classes are accessed through their enclosing class</i></p>
+<font size="2" color="blue">静态内部类需要通过封闭类来访问</font>
             <hr />
 
             <p>Static classes are <b>INDEPENDENT</b> of their enclosing class. They are like ordinary classes, only that they just happen to be inside another class.</p>
+<font size="2" color="blue">静态类<b>独立于</b>所属的封闭类。可以它们看作是普通类，只是恰好在另一个类里。</font>
 
             <p>In fact, you can think of the enclosing class as a kind of a package. You can import the name of the enclosing class and use the static inner class like a normal class. Just remember that the inner static class must be a <code>public</code> member so that it can be accessed from another package.</p>
+<font size="2" color="blue">其实，您可以把封闭类看作是包（package）。您可以导入封闭类的名称，并像使用普通类那样去使用静态内部类。但要记住，内部静态类必须是公共（<code>public</code>）的，以便可以从另一个包访问到。</font>
 
             <p><code class="hljs"><span class="hljs-preprocessor"><span class="hljs-keyword">import</span> com.example.Computer.*;<br /></span> <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span></span> {<br />
 	  &nbsp; &nbsp; &nbsp; Mouse m = <span class="hljs-keyword">new</span> Mouse();<br />
 	  &nbsp; &nbsp; &nbsp;<span class="hljs-comment">/** Rest of the definition */<br /></span>}</code></p>
 
-            <p>And they can also be&nbsp;marked as <code>private</code>, <code>protected</code> or without a modifier, so they are accessible only in the package (default accessibility).</p>
+            <p>And they can also be marked as <code>private</code>, <code>protected</code> or without a modifier, so they are accessible only in the package (default accessibility).</p>
+<font size="2" color="blue">它们也可以被标记为私有的（<code>private</code>）、受保护的（<code>protected</code>）或无修饰符，这样只能在包中访问（默认）。</font>
 
             <p><code class="hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Computer</span></span> {<br />
 	  &nbsp; &nbsp; &nbsp;<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Component</span></span> { }<br />
@@ -147,6 +165,7 @@
 	  }</code></p>
 
             <p>Of course, by being a member of a class, the static inner class have access to the other members of the enclosing class, but only if they are <b>STATIC</b>.</p>
+<font size="2" color="blue">作为类的成员，静态内部类可以访问所属封闭类的其他<b>静态</b>成员。</font>
 
             <p><code class="hljs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Computer</span> {<br />
 	  &nbsp; &nbsp; &nbsp;<span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String serialNumber = <span class="hljs-string">"1234X"</span>;<br />
@@ -158,6 +177,7 @@
 	  }</code></p>
 
             <p>Why?</p>
+<font size="2" color="blue">为什么？</font>
 
             <p>Think about it, if the static class is independent of its enclosing class, it doesn't need an instance of this, so only the static members could be used because they are associated with the class, not to a particular instance.</p>
 
@@ -167,6 +187,7 @@
             <hr />
 
             <h4><i>Defining a non-static inner class</i></h4>
+<font size="2" color="blue">定义一个非静态内部类</font>
 
             <p><i><code class="hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Computer</span></span> {<br />
 	  &nbsp; &nbsp; &nbsp;<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HardDrive</span></span> {<br />
@@ -174,6 +195,7 @@
 	  }</code></i></p>
 
             <h4><i>Using a non-static inner class</i></h4>
+<font size="2" color="blue">使用这个非静态内部类</font>
 
             <p><i>NON-Static inner classes are accessed through an instance of their enclosing class</i></p>
 
@@ -186,13 +208,16 @@
             <p>Non-static inner classes are just called inner classes.</p>
 
             <p>Instances of an inner class only exist <b>WITHIN</b> an instance of the enclosing class. It's the same that when you want to use a method of a class, you <b>FIRST</b> need an instance of that class.</p>
+<font size="2" color="blue">内部类的实例只存在于封闭类的实例中。当需要使用内部类时，必须要<b>先</b>实例化这个所属的封闭类。</font>
 
             <p>Once you have an instance of the enclosing class, you use the <code>new</code> operator in a (weird) different way than you typically use it.</p>
+<font size="2" color="blue">一旦有了该封闭类的实例，就可以通过以下这种（独特的）方式来使用<code>new</code>操作符，这有别于通常的使用方式。</font>
 
             <p><code class="hljs"><span class="hljs-type">Computer</span> computer = <span class="hljs-keyword">new</span> <span class="hljs-type">Computer</span><span class="hljs-literal">()</span>;<br />
 	  <span class="hljs-type">Computer</span>.<span class="hljs-type">HardDrive</span> hardDrive = computer.<span class="hljs-keyword">new</span> <span class="hljs-type">HardDrive</span><span class="hljs-literal">()</span>;</code></p>
 
             <p>You can also use the import trick to writing less, but you still need to create the inner class as always.</p>
+<font size="2" color="blue">您还可以利用import来简化代码，但仍然需要实例化创建内部类。</font>
 
             <p><code class="hljs"><span class="hljs-preprocessor"><span class="hljs-keyword">import</span> com.example.Computer.*;<br /></span> <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span></span> {<br />
 	  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Computer computer = <span class="hljs-keyword">new</span> Computer();<br />
@@ -201,6 +226,7 @@
 	  }</code></p>
 
             <p>Another way to get an instance of an inner class is to use a method of the enclosing class to create it, avoiding that weird syntax.</p>
+<font size="2" color="blue">获取内部类实例的另一种方法是使用封闭类的方法来创建它。</font>
 
             <p><code class="hljs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Computer</span> {<br />
 	  &nbsp; &nbsp; &nbsp;<span class="hljs-keyword">class</span> <span class="hljs-title">HardDrive</span> { }<br />
@@ -210,6 +236,7 @@
 	  }</code></p>
 
             <p>By being a member of a class, the inner class has access to the other members of the enclosing class, but this time, it <b>DOESN'T</b> matter if they are static or not.</p>
+<font size="2" color="blue">作为类的成员，该内部类可以访问封闭类中的其他成员，<b>无论</b>是静态还是非静态。</font>
 
             <p><code class="hljs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Computer</span> {<br />
 	  &nbsp; &nbsp; &nbsp;<span class="hljs-keyword">private</span> String brand = <span class="hljs-string">"XXX"</span>;<br />
@@ -224,10 +251,12 @@
 	  }</code></p>
 
             <p>Why?</p>
+<font size="2" color="blue">为什么？</font>
 
             <p>Because to use the inner class, an instance of the enclosing class is required, ensuring that the non-static members exist (static members can be accessed anyway).</p>
 
             <p>Inner classes can also be marked as <code>private</code>, <code>protected</code> or without a modifier, so they are accessible only in the package. But most of the time, since they depend on the enclosing class, they are marked as <code>private</code>.</p>
+<font size="2" color="blue">内部类可以标记为私有的（<code>private</code>）、受保护的（<code>protected</code>）或无修饰符的，因此只能在包中访问它们。但于它们依赖于封闭类，所以大多数时候都将它们被标记为私有（<code>private</code>）。</font>
 
             <p><code class="hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Computer</span></span> {<br />
 	  &nbsp; &nbsp; &nbsp;<span class="hljs-keyword">private</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Component</span></span> { }<br />
@@ -236,6 +265,7 @@
 	  }</code></p>
 
             <p>Another rule is that inner classes <b>CANNOT</b> contain <code>static</code> members.</p>
+<font size="2" color="blue">另外，内部类<b>不允许</b>包含静态成员。</font>
 
             <p><code class="hljs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Computer</span> {<br />
 	  &nbsp; &nbsp; &nbsp;<span class="hljs-keyword">class</span> <span class="hljs-title">HardDrive</span> {<br />
@@ -246,10 +276,12 @@
 	  }</code></p>
 
             <p>Static code is executed during class initialization, but you cannot initialize a non-static inner class without having an instance of the enclosing class.</p>
+<font size="2" color="blue">静态代码是在类初始化时执行的，如果初始化所属的封闭类，就不能初始化该非静态内部类。</font>
 
             <p>Because an inner class belongs to <b>ONE</b> instance of the enclosing class. Having a <code>static</code> member means it can be shared across instances because the member belongs to the class, but since we are talking about an inner class that cannot be shared by many instances of the enclosing class, that is not possible.</p>
 
-            <p>The only exception is when you define a <code>final static</code> attribute. The <code>final</code> keyword makes all the difference; it makes a constant expression, but it only works with <b>ATTRIBUTES</b> and when assigning an&nbsp;<b>NON-NULL</b> value.</p>
+            <p>The only exception is when you define a <code>final static</code> attribute. The <code>final</code> keyword makes all the difference; it makes a constant expression, but it only works with <b>ATTRIBUTES</b> and when assigning an <b>NON-NULL</b> value.</p>
+<font size="2" color="blue">唯一的例外是定义为<code>final static</code>时。<code>final</code>关键字有所不同；它用于定义常量，但这只适用于属性（<b>ATTRIBUTES</b>）分配一个非空（<b>NON-NULL</b>）值时。</font>
 
             <p><code class="hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Computer</span></span> {<br />
 	  &nbsp; &nbsp; &nbsp;<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HardDrive</span></span> {<br />
@@ -262,6 +294,7 @@
             <hr />
 
             <h4><i>Defining a local class</i></h4>
+<font size="2" color="blue">定义一个局部类</font>
 
             <p><i><code class="hljs"><span class="hljs-keyword">class</span> <span class="hljs-title">Computer</span> {<br />
 	  &nbsp; &nbsp; &nbsp;<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">process</span>()</span> {<br />
@@ -271,8 +304,10 @@
 	  }</code></i></p>
 
             <h4><i>Using a local class</i></h4>
+<font size="2" color="blue">使用局部类</font>
 
             <p><i>Local classes can only be used inside the method or block that defines them</i></p>
+<font size="2" color="blue">局部类只能在方法或快中定义</font>
 
             <p><i><code class="hljs"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">process</span>()</span> {<br />
 	  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="hljs-keyword">class</span> <span class="hljs-title">Core</span> { }<br />
@@ -297,6 +332,7 @@
             <p>Also, notice where the instances of the local classes are created. The local class has to be used <b>BELOW</b> its definition. Otherwise, the compiler won't be able to find it.</p>
 
             <p>Because a local inner class is not a member of a class, it <b>CANNOT</b> be declared with an access level, and it wouldn't make sense anyway since they are only accessible where they are declared. However, a local class can be declared as abstract or final (but not at the same time).</p>
+<font size="2" color="blue">因为局部内部类不属于类的成员，所以不能用访问级别修饰符声明它，而且也没有意义，因为它们只能在声明的地方访问。但是，局部类可以声明为抽象（abstract）类或最终（final）类（但不能同时声明）。</font>
 
             <p>Local classes require an instance of their enclosing class so the method or block in which they are defined can be executed. For this reason, they can access the members of the enclosing class, but they cannot declare static members (only static final attributes), just like inner classes.</p>
 
@@ -317,12 +353,15 @@
             <p>If the local class is declared inside a method, it can access the variables and parameters of the method <b>ONLY</b> if they are declared final or are effectively final.</p>
 
             <p><i>Effectively final</i> is a term that means that a variable or parameter is not changed after it's initialized, even if its declaration does not use the <code>final</code> keyword.</p>
+<font size="2" color="blue"><i>Effectively final</i>是一个术语，意思是变量或参数在初始化后将不会改变，即使不使用<code>final</code>关键字来声明。</font>
 
             <p>Why?</p>
+<font size="2" color="blue">为什么？</font>
 
             <p>Because an instance of a local class can be alive even after the method or block in which it is defined has finished its execution (for example, if a reference is saved in an object with greater scope). For this reason, the local class must keep an internal copy of the variables it uses, and the only way to ensure that both copies always hold the same value it's by making the variable <code>final</code>.</p>
 
             <p>So, the following code is valid because <code>taskName</code> is declared <code>final</code> while <code>n</code> doesn't change and is considered <i>effectively final</i>.</p>
+<font size="2" color="blue">因此，下面的代码是有效的，因为<code>taskName</code>被声明为<code>final</code>，而<code>n</code>虽然没有修改，但被认为是<i>effectively final</i>。</font>
 
             <p><code class="hljs"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">process</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> n</span>)</span> {<br />
 	  &nbsp; &nbsp; &nbsp;final String taskName = <span class="hljs-string">"Task #1"</span>;<br />
@@ -337,6 +376,7 @@
 	  }</code></p>
 
             <p>But if we modify the value of <code>n</code> somewhere, an error will be generated.</p>
+<font size="2" color="blue">但是，如果在某处修改<code>n</code>，那么将会编译错误。</font>
 
             <p><code class="hljs"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">process</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> n</span>)</span> {<br />
 	  &nbsp; &nbsp; &nbsp;final String taskName = <span class="hljs-string">"Task #1"</span>;<br />
@@ -351,6 +391,7 @@
 	  }</code></p>
 
             <p><i>Effectively final</i> is only concerned with references, not objects or their content, because at the end of the day, we are referencing the same object.</p>
+<font size="2" color="blue">实际上<i>Effectively final</i>只关注是否被引用，而不关注对象本身或它们的内容，因为在最后引用的是相同的对象。</font>
 
             <p><code class="hljs"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">process</span>(<span class="hljs-params"><span class="hljs-keyword">int</span> n</span>)</span> {<br />
 	  &nbsp; &nbsp; &nbsp;StringBuffer taskName = <span class="hljs-keyword">new</span> StringBuffer(<span class="hljs-string">"Task #1"</span>);<br />
@@ -366,9 +407,11 @@
             <p>If you're still not sure about a declaration being <i>effectively final</i>, try adding the <code>final</code> modifier to it. If the program continues to behave in the same way, then the declaration is <i>effectively final</i>.</p>
 
             <p>If the class is declared in a static method, static rules also apply, meaning that the local class only has access to the static members of the enclosing class.</p>
+<font size="2" color="blue">如果在静态方法中声明类，规则是相同的，即局部类只能访问封闭类的静态成员。</font>
             <hr />
 
             <h4><i>Defining an anonymous class</i></h4>
+<font size="2" color="blue">定义一个匿名类</font>
 
             <p><i>The new operator is followed by the name of an interface or a class and the arguments to a constructor (or empty parentheses if it's an interface)</i></p>
 
@@ -383,22 +426,27 @@
             <hr />
 
             <p>An anonymous class is called that way because it doesn't have a name. However, an anonymous class expression doesn't declare a new class. It either <b>IMPLEMENTS</b> an existing interface or <b>EXTENDS</b> an existing class. So</p>
+<font size="2" color="blue">因为没有类名，匿名类调用方式是下面这样的。匿名类不需要声明。它既可以实现（<b>IMPLEMENTS</b>）现有接口，也可以扩展（<b>EXTENDS</b>）现有类。所以</font>
 
             <p><code class="hljs"><span class="hljs-tag">new</span> <span class="hljs-tag">Computer</span>() { }</code></p>
 
             <p>is like writing</p>
+<font size="2" color="blue">像这样写</font>
 
             <p><code class="hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> [<span class="hljs-title">NO_NAME_CLASS</span>] <span class="hljs-keyword">extends</span> <span class="hljs-title">Computer</span></span> { }</code></p>
 
             <p>And if we're working with an interface</p>
+<font size="2" color="blue">假如我们要使用接口</font>
 
             <p><code class="hljs"><span class="hljs-keyword">new</span> Runnable() { }</code></p>
 
             <p>is like writing</p>
+<font size="2" color="blue">可以写成这样</font>
 
             <p><code class="hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> [<span class="hljs-title">NO_NAME_CLASS</span>] <span class="hljs-keyword">implements</span> <span class="hljs-title">Runnable</span></span> { }</code></p>
 
             <p>Also, an anonymous class can be used in a declaration or a method call.</p>
+<font size="2" color="blue">另外，可以在声明或方法中调用匿名类。</font>
 
             <p><code class="hljs"><span class="hljs-keyword">class</span> <span class="hljs-title">Program</span> {<br />
 	  &nbsp; &nbsp; &nbsp;<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">start</span>(<span class="hljs-params">Computer c</span>)</span> {<br />
@@ -468,8 +516,10 @@
             <p>Using an anonymous class is mostly about style. If the class has a short body, it only implements one interface (if we're working with interfaces), it doesn't declare new members, and the syntax makes your code clearer, you should consider using it instead of a local or an inner class.</p>
 
             <h2>Shadowing</h2>
+<font size="2" color="blue">坑</font>
 
             <p>An important concept to take into account when working with inner classes (of any type) is what happens when a member of the inner class has the same name of a member of the enclosing class.</p>
+<font size="2" color="blue">当使用内部类时需要特别注意，就是当内部类的成员名称与所属封闭类的成员名称相同时的情况。</font>
 
             <p><code class="hljs"><span class="hljs-keyword">class</span> Computer {<br />
 	  &nbsp; &nbsp; &nbsp;<span class="hljs-keyword">private</span> String serialNumber = <span class="hljs-string">"1234XXX"</span>;<br />
