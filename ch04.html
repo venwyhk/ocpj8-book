@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-cn">
 
 <head>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -10,7 +10,7 @@
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.2.2.min.js"></script>
 
     <script src="js/common-sections.js"></script>
 </head>
@@ -25,7 +25,9 @@
 
 
                 <h1><i class="chapter">Chapter FOUR</i><br />
-			  Interfaces</h1>
+			  Interfaces<br />
+<font size="2" color="blue">第四章<br />接口</font>
+                </h1>
 
                 <p><br /></p>
 
@@ -46,6 +48,7 @@
         <div class="column">
 
             <h2>What's an interface?</h2>
+<font size="2" color="blue">什么是接口？</font>
 
             <p>The first time you look an interface, you'll probably think that it's like a class with just methods definitions:</p>
 
@@ -67,6 +70,7 @@
             <hr />
 
             <h4><i>Defining an interface</i></h4>
+<font size="2" color="blue">定义一个接口</font>
 
             <p><code class="java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Monitorable</span></span> {<br />
 	  <span class="hljs-keyword"><font color="#000000">&nbsp; &nbsp;&nbsp;</font>public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> ID = <span class="hljs-number">0</span>;<br />
@@ -74,6 +78,7 @@
 	  }</code></p>
 
             <h4><i>Implementing an interface</i></h4>
+<font size="2" color="blue">继承这个接口</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Server</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Monitorable</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp;&nbsp;public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">monitor</span><span class="hljs-params">()</span></span> {<br />
@@ -83,28 +88,35 @@
             <hr />
 
             <p>Like a class, an interface has either <code>public</code> or default accessibility:</p>
+<font size="2" color="blue">和类一样，接口可以定义为<code>public</code>或默认（default）：</font>
 
             <p><code class="java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">PublicAccessInterface</span></span> {<br />
                 <span class="hljs-comment"><font color="#000000">&nbsp; &nbsp;&nbsp;</font>// ...<br /></span>}</code><code class="java hljs"><span class="hljs-keyword">interface</span> <span class="hljs-class"><span class="hljs-title">DefaultAccessInterface</span></span> {<br />
 	  &nbsp; &nbsp; <span class="hljs-comment">// ...<br /></span> }</code></p>
 
             <p>Interfaces are <code>abstract</code> by default (you don't have to specify it):</p>
+<font size="2" color="blue">默认情况下接口是抽象（<code>abstract</code>）的（可以不用定义它）：</font>
 
             <p><code class="java hljs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">PublicAccessInterface</span></span> {<br />
 	  <span class="hljs-comment">&nbsp; &nbsp;&nbsp;// This is the same as the definition above</span><br />
 	  }</code></p>
 
             <p>This means two things:</p>
+<font size="2" color="blue">这意味着：</font>
 
             <ul>
                 <li>You can't instantiate an interface directly, it has to be implemented by a class to use it.</li>
+<font size="2" color="blue">您不能实例化一个接口，必须由类来实现它。</font>
 
                 <li>An interface cannot be marked as <code>final</code>.</li>
+<font size="2" color="blue">接口不能标注为<code>final</code>。</font>
             </ul>
 
             <p>The methods defined in an interface are by default <b>PUBLIC</b> and <b>ABSTRACT</b>, the compiler will treat them as such even if you don't specify it.</p>
+<font size="2" color="blue">在接口中定义的方法默认是<b>PUBLIC</b>和<b>ABSTRACT</b>的，即使不指定，编译器也会将其处理为这样。</font>
 
             <p>So even though you define an interface like this:</p>
+<font size="2" color="blue">所以，即使这样定义：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Monitorable</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; void</span> <span class="hljs-title">monitor</span><span class="hljs-params">()</span></span>;<br />
@@ -112,6 +124,7 @@
 	  }</code></p>
 
             <p>For the compiler, the interface will look like this:</p>
+<font size="2" color="blue">对编译器来说，接口也等同于下面这样：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Monitorable</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">monitor</span><span class="hljs-params">()</span></span>;<br />
@@ -119,6 +132,7 @@
 	  }</code></p>
 
             <p>That's the reason you must mark the method as <code>public</code> when it's implemented:</p>
+<font size="2" color="blue">这也是接口实现的方法需要标注为<code>public</code>的原因：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Server</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Monitorable</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">monitor</span><span class="hljs-params">()</span></span> {<br />
@@ -129,6 +143,7 @@
 	  }</code></p>
 
             <p>Also, that's the reason that, if one or more of the interface's methods are not implemented, you must mark the class (and the methods) as <code>abstract</code>:</p>
+<font size="2" color="blue">同样的，如果类没有全部实现接口的方法，则必须将这个实现类（和方法）标记为<code>abstract</code>：</font>
 
             <p><code class="java hljs"><span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Server</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Monitorable</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">monitor</span><span class="hljs-params">()</span></span> {<br />
@@ -138,8 +153,10 @@
 	  }</code></p>
 
             <p>Fields declared in an interface are by default <b>PUBLIC</b>, <b>STATIC</b>, and <b>FINAL</b>. Like methods, the compiler will treat them as such even if you don't specify it.</p>
+<font size="2" color="blue">默认情况下，在接口中声明的字段是<b>PUBLIC</b>、<b>STATIC</b>和<b>FINAL</b>的。与方法一样，即使不指定，编译器也会将其处理为这样。</font>
 
             <p>This means that fields are <b>CONSTANTS</b> instead of <b>VARIABLES</b>:</p>
+<font size="2" color="blue">也就是说，接口内的字段是常量（<b>CONSTANTS</b>）而不是变量（<b>VARIABLES</b>）：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Monitorable</span></span> {<br />
 	  &nbsp; &nbsp;&nbsp;<span class="hljs-keyword">int</span> ID = <span class="hljs-number">0</span>; <span class="hljs-comment">// You have to assign a value at creation time</span><br />
@@ -151,17 +168,19 @@
 	  }</code></p>
 
             <p>This also means that the following declarations are all equivalent inside an interface:</p>
+<font size="2" color="blue">以下几种写法在接口中是等效的：</font>
 
             <p><code class="java hljs"><span class="hljs-keyword">int</span> ID = <span class="hljs-number">0</span>;<br />
 	  <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> ID = <span class="hljs-number">0</span>;<br />
 	  <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> ID = <span class="hljs-number">0</span>;<br />
 	  <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> ID = <span class="hljs-number">0</span>;<br />
-	  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> ID = <span class="hljs-number">0</span>;<br />
-	  <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> ID = <span class="hljs-number">0</span>;<br />
-	  <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> ID = <span class="hljs-number">0</span>;<br />
-	  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> ID = <span class="hljs-number">0</span>;</code></p>
+	  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> ID = <span class="hljs-number">0</span>;<br />
+	  <span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> ID = <span class="hljs-number">0</span>;<br />
+	  <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> ID = <span class="hljs-number">0</span>;<br />
+	  <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> ID = <span class="hljs-number">0</span>;</code></p>
 
             <p>So watch out for declarations that won't compile, like these:</p>
+<font size="2" color="blue">要注意一些无法编译通过的写法，比如：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Monitorable</span></span> {<br />
 	  <span class="hljs-keyword">&nbsp; &nbsp; private</span> <span class="hljs-keyword">int</span> ID = <span class="hljs-number">0</span>; <span class="hljs-comment">// It cannot be private</span><br />
@@ -169,11 +188,14 @@
 	  }</code></p>
 
             <p>There are two rules regarding inheritances and interfaces:</p>
+<font size="2" color="blue">以下是两条关于接口和继承相关的规则：</font>
 
             <ul>
                 <li>A class can implement (not extend from) any number of interfaces.</li>
+<font size="2" color="blue">一个类可以实现（不是继承）任意数量的接口。</font>
 
                 <li>An interface can extend any number of interfaces, but it cannot extend from a class.</li>
+<font size="2" color="blue">一个接口可以继承任意数量的接口，但不能继承类。</font>
             </ul>
 
             <p>Implementing an interface is a type of inheritance. When a class implements an interface, we can use it like this to take advantage of polymorphism:</p>
@@ -218,6 +240,7 @@
 	  }</code></p>
 
             <p>If you could inherit from multiple classes:</p>
+<font size="2" color="blue">如果可以从多个类继承：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Car</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Truck</span>, <span class="hljs-title">CompactCar</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp;&nbsp;public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span> {<br />
@@ -227,10 +250,13 @@
 	  }</code></p>
 
             <p>Which <code>accelerate()</code> method would Java choose?</p>
+<font size="2" color="blue">将会执行哪一个<code>accelerate()</code>方法？</font>
 
             <p>This is a problem that the designers of Java decided to avoid by not allowing multiple inheritance.</p>
+<font size="2" color="blue">Java中是不允许多继承的，所以不会存在这样的问题。</font>
 
             <p>But what if we were using interfaces?</p>
+<font size="2" color="blue">但如果使用接口呢？</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Truck</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; void</span> <span class="hljs-title">accelerate</span><span class="hljs-params">()</span></span>;<br />
@@ -245,8 +271,10 @@
 	  }</code></p>
 
             <p>As the interfaces don't provide an implementation, there's only one (<code>Car</code>'s implementation) so there's no conflict and we avoid the problem altogether!</p>
+<font size="2" color="blue">由于这个接口只有唯一的实现（<code>Car</code>），所以也不会存在这样的问题。</font>
 
             <p>And if the methods have the same name but different parameters:</p>
+<font size="2" color="blue">如果方法的名称相同，但参数不同：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Truck</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; void</span> <span class="hljs-title">accelerate</span><span class="hljs-params">()</span></span>;<br />
@@ -256,6 +284,7 @@
 	  }</code></p>
 
             <p>They're considered two different methods because the method's signature is different, so the implementing class has to implement both versions of the methods:</p>
+<font size="2" color="blue">这样会被认为是两个不同的方法，因为标识不同，所以必须分别实现两个方法：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Car</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Truck</span>, <span class="hljs-title">CompactCar</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">accelerate</span><span class="hljs-params">()</span></span> {<br />
@@ -267,6 +296,7 @@
 	  }</code></p>
 
             <p>However, when the methods only differ in their return type, since the return type is not considered in the method's signature, the Java compiler will generate an error:</p>
+<font size="2" color="blue">然而，如果两个方法仅有返回值不同，返回值不属于方法的表示，所以这将无法通过编译：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Truck</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; void</span> <span class="hljs-title">accelerate</span><span class="hljs-params">()</span></span>;<br />
@@ -286,6 +316,7 @@
 	  }</code></p>
 
             <p>Optionally, to make things clearer, we can use the <code>@Override</code> annotation.</p>
+<font size="2" color="blue">另外，为了使其更加清晰，我们可以使用<code>@Override</code>标注。</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">CompactCar</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; int</span> <span class="hljs-title">accelerate</span><span class="hljs-params">()</span></span>;<br />
@@ -315,6 +346,7 @@
 	  }</code></p>
 
             <p>Finally, an interface can only extend other interfaces.</p>
+<font size="2" color="blue">最后要说的是，接口只能扩展其它的接口。</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Monitorable</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; void</span> <span class="hljs-title">monitor</span><span class="hljs-params">()</span></span>;<br />
