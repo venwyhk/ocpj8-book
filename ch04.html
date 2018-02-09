@@ -373,14 +373,17 @@
 	  }</code></p>
 
             <h2>What's new in Java 8?</h2>
+<font size="2" color="blue">Java8有哪些新特性呢？</font>
 
             <p>Assume we have an interface like this:</p>
+<font size="2" color="blue">假设由这样一个接口：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Processable</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; void</span> <span class="hljs-title">processInSequence</span><span class="hljs-params">()</span></span>;<br />
 	  }</code></p>
 
             <p>And an implementation:</p>
+<font size="2" color="blue">以及它的实现：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Task</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Processable</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">processInSequence</span><span class="hljs-params">()</span></span> {<br />
@@ -389,8 +392,10 @@
 	  }</code></p>
 
             <p>We know that when a class implements an interface, unless the class is marked as <code>abstract</code>, it has to implement <b>ALL</b> the methods of that interface.</p>
+<font size="2" color="blue">如前所述，当类实现接口时，除非该类被标记为<code>abstract</code>，否则它必须实现该接口的<b>所有</b>方法。</font>
 
             <p>So if we add another method to <code>Processable</code>, for example:</p>
+<font size="2" color="blue">所以如果我们在<code>Processable</code>接口中又添加了一个方法，例如：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Processable</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; void</span> <span class="hljs-title">processInSequence</span><span class="hljs-params">()</span></span>;<br />
@@ -398,6 +403,7 @@
 	  }</code></p>
 
             <p>We have to update the class to avoid a compilation error:</p>
+<font size="2" color="blue">为了避免编译错误，我们必须要修改实现类：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Task</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Processable</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">processInSequence</span><span class="hljs-params">()</span></span> {<br />
@@ -409,26 +415,35 @@
 	  }</code></p>
 
             <p>That was easy. But think about the following:</p>
+<font size="2" color="blue">这看上去很容易理解，但我们需要思考下面几个问题：</font>
 
             <ul>
                 <li>What if we have hundreds of classes implementing <code>Processable</code>?</li>
+<font size="2" color="blue">如果我们有成百上千个<code>Processable</code>的实现类呢？</font>
 
                 <li>What if we can't update or don't have access to the code for some reason?</li>
+<font size="2" color="blue">如果我们无法修改，或因为某些原因不能访问到这些代码的时候，该怎么办呢？</font>
 
                 <li>What if the new method is not needed or doesn't make sense for some implementations?</li>
+<font size="2" color="blue">如果新的方法不重要，或者没有意义，又该怎样做？</font>
             </ul>
 
             <p>These are real problems, sometimes not easy to solve.</p>
+<font size="2" color="blue">以上这些都是很实际的问题，而且还很难完美解决。</font>
 
             <p>However, Java 8 gives us <i>default</i> methods. We don't have to provide implementations for them because they are non-abstract methods.</p>
+<font size="2" color="blue">然而，Java8新提供了默认（<i>default</i>）方法。因为这不是抽象方法，所以我们可以不用去实现它。</font>
 
             <p>In other words, interfaces now allow methods with a <b>BODY</b>. And this is not as simple as it sounds.</p>
+<font size="2" color="blue">也就是说，接口<b>本体</b>现在可以有方法了。但这还没这么简单。</font>
 
             <h2>Default methods</h2>
+<font size="2" color="blue">默认方法</font>
 
             <p>The main reason for adding <i>default</i> methods to interfaces was to support <i>interface evolution</i>, to add new functionality to interfaces and at the same time, ensuring compatibility with the code written for older versions.</p>
 
             <p>There are two other side effects worth mentioning:</p>
+<font size="2" color="blue">以下两点需要特别注意：</font>
 
             <ul>
                 <li><b>We can now design <i>optional</i> methods</b>. We can have methods with limited or default functionality so the classes implementing the interfaces can decide if they keep that functionality or provide another one.</li>
@@ -448,6 +463,7 @@
             <hr />
 
             <h4><i>Defining a default method</i></h4>
+<font size="2" color="blue">定义一个默认方法</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Processable</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; void</span> <span class="hljs-title">processInSequence</span><span class="hljs-params">()</span></span>;<br />
@@ -464,6 +480,7 @@
             <hr />
 
             <p>By making <code>processInParallel()</code> a <i>default</i> method, the implementing class gets it automatically. Here's the complete example:</p>
+<font size="2" color="blue"><code>processInParallel()</code>是默认（<i>default</i>）方法，实现类将会自动适配。下面是完整的例子：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Processable</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; void</span> <span class="hljs-title">processInSequence</span><span class="hljs-params">()</span></span>;<br />
@@ -483,28 +500,38 @@
 	  }</code></p>
 
             <p>This is the most simple scenario, where the implementing class inherits the <i>default</i> method.</p>
+<font size="2" color="blue">这是最基本的使用场景，实现类继承了接口的默认（<i>default</i>）方法。</font>
 
             <p>Before presenting more complex scenarios, let's see what the restrictions are when using <i>default</i> methods.</p>
+<font size="2" color="blue">在演示更复杂的使用场景前，让我们先来看看使用默认（<i>default</i>）方法时有哪些限制。</font>
 
             <p><b>Default methods cannot be final.</b><br /> If a method is <code>final</code>, it cannot be overridden by the implementing classes, which doesn't favor the primary objective of <i>default</i> methods.</p>
+<font size="2" color="blue"><b>默认方法不是final的。</b><br />如果方法标注是<code>final</code>的，那么它将不能被实现类重写，这与使用默认（<i>default</i>）方法的主要目标背道而驰。</font>
 
             <p><b>Default methods cannot be synchronized.</b><br /> This was a deliberate decision by the designers of the language. If a method is made synchronized in the interface, it would mean that all the implementing classes would inherit this behavior. But this decision should belong to the implementation; the interface has no reasonable basis for assuming what the synchronization policy should be.</p>
+<font size="2" color="blue"><b>默认方法不是同步（synchronized）的。</b><br />这是Java语言设计者深思熟虑后的决定。如果一个方法在接口中进行同步，则意味着所有实现类都将是同步的。但这应该由实现类来决定，而不应该由接口来决定同步策略是什么。</font>
 
             <p><b>Default methods are always public.</b><br /> Like other methods of an interface. Contrast this with an abstract class, where you can choose the visibility of the method.</p>
+<font size="2" color="blue"><b>默认方法始终是public的。</b><br />这跟接口的其他方法一样。这与抽象类不同，抽象类可以自由选择方法的可见性。</font>
 
             <p><b>You cannot have default methods for the <code>Object</code>'s class methods.</b><br /> An interface cannot provide default implementations for:</p>
+<font size="2" color="blue"><b>不允许为对象（<code>Object</code>）的类方法设置默认方法。</b><br />接口不能将以下几个方法作为默认方法：</font>
 
             <p><code class="java hljs"><span class="hljs-function"><span class="hljs-keyword">boolean</span> <span class="hljs-title">equals</span><span class="hljs-params">(Object o)</span><br />
 	  <span class="hljs-keyword">int</span> <span class="hljs-title">hashCode</span><span class="hljs-params">()</span><br />
 	  String <span class="hljs-title">toString</span><span class="hljs-params">()</span></span></code></p>
 
             <p>If an interface has methods with those signatures, the compiler will throw an error. The reason is that those methods are all about the object's state. Since interfaces do not have a state, these methods should be in the implementing classes.</p>
+<font size="2" color="blue">如果接口的默认方法有带有以上这些方法的标识，那么编译器就会抛错。因为这些方法都是跟对象状态有关的。而接口是没有状态的，所以这些方法不应该出现在接口中。</font>
 
             <p>And now, to the more complex scenarios.</p>
+<font size="2" color="blue">接下来来看看更复杂的场景。</font>
 
             <h2>Class overrides default method</h2>
+<font size="2" color="blue">在实现类中重写默认方法</font>
 
             <p>Classes always <b>WIN</b> over interfaces. If a class overrides a default method, the class method will be the one used. For example:</p>
+<font size="2" color="blue">类方法的优先级<b>大于</b>接口方法。如果某个实现类重写了接口的默认方法，将会优先选择实现类的方法。例如:</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Processable</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; void</span> <span class="hljs-title">processInSequence</span><span class="hljs-params">()</span></span>;<br />
@@ -526,10 +553,12 @@
 	  }</code></p>
 
             <p>The output would be:</p>
+<font size="2" color="blue">将输出：</font>
 
             <p><code class="java hljs">Class parallel</code></p>
 
             <p>This is true even if the class redefines the default method as <code>abstract</code>:</p>
+<font size="2" color="blue">就算实现类为抽象（<code>abstract</code>）的，也一样：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Processable</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; void</span> <span class="hljs-title">processInSequence</span><span class="hljs-params">()</span></span>;<br />
@@ -545,14 +574,17 @@
 	  }</code></p>
 
             <p>If for some reason, you need to call the default implementation of the method, you can do it with the name of the interface followed by the keyword <code>super</code>:</p>
+<font size="2" color="blue">假如出于某种原因，您需要调用默认方法，可以用接口的名称加关键字<code>super</code>，如下：</font>
 
             <p><code class="java hljs"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">processInParallel</span><span class="hljs-params">()</span></span> {<br />
 	  &nbsp; &nbsp; Processable.<span class="hljs-keyword">super</span>.processInParallel();<br />
 	  }</code></p>
 
             <p>This only works with default methods. Calling a non-default method in this way will result in a compilation error. Also, <code>super</code> must be used with a direct super interface of the class.</p>
+<font size="2" color="blue">这种调用方式只适用于默认方法。以这种方式调用非默认方法将会编译错误。而且，<code>super</code>必须与该类实现的那个接口一起使用。</font>
 
             <p>Another scenario related to this rule is when an inherited instance method from a class overrides a default interface method:</p>
+<font size="2" color="blue">与此规则相关的另一个场景是类继承的实例，重写了接口的默认方法，如下：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Processable</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; default</span> <span class="hljs-keyword">void</span> <span class="hljs-title">processInParallel</span><span class="hljs-params">()</span></span> {<br />
@@ -573,12 +605,14 @@
 	  }</code></p>
 
             <p>The output is:</p>
+<font size="2" color="blue">将输出：</font>
 
             <p><code class="java hljs">Class parallel</code></p>
 
             <p>The method <code>processInParallel()</code> returns the string <code>"Class parallel"</code> since the class <code>Task</code> inherits the method <code>processInParallel()</code> from the class <code>Process</code>, which overrides the default method of the same name in the interface <code>Processable</code>.</p>
 
             <h2>Interface inheritance with default methods</h2>
+<font size="2" color="blue">接口默认方法被继承</font>
 
             <p>More specific interfaces (or classes) always <b>WIN</b> over less specific ones. The default methods of the shallower interfaces in an inheritance hierarchy will be used. For example:</p>
 
@@ -635,6 +669,7 @@
             <p><code class="java hljs">Task parallelizable</code></p>
 
             <h2>Multiple interface inheritance with default methods</h2>
+<font size="2" color="blue">继承多个接口的默认方法</font>
 
             <p>Classes can implement multiple interfaces. What happens when two interfaces have the same default method? Which one does the implementing class will choose? For example:</p>
 
@@ -661,6 +696,7 @@
 	  }</code></p>
 
             <p>It turns out that the result is a compiler error:</p>
+<font size="2" color="blue">将无法通过编译：</font>
 
             <p><code class="hljs">Duplicate default methods named processInParallel with the parameters () and () are inherited from the types Parallelizable and Processable.</code></p>
 
@@ -685,6 +721,7 @@
             <p><code class="java hljs">Task parallelizable</code></p>
 
             <p>Of course, we can always call a default implementation with:</p>
+<font size="2" color="blue">当然，我们也可以调用接口的默认方法：</font>
 
             <p><code class="java hljs"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">processInParallel</span><span class="hljs-params">()</span></span> {<br />
 	  &nbsp; &nbsp; Processable.<span class="hljs-keyword">super</span>.processInParallel();<br />
@@ -692,6 +729,7 @@
             <hr />
 
             <h4>Defining a static method</h4>
+<font size="2" color="blue">定义一个静态方法</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Processable</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">log</span><span class="hljs-params">()</span></span> {<br />
@@ -707,6 +745,7 @@
             <hr />
 
             <h2>Static methods</h2>
+<font size="2" color="blue">静态方法</font>
 
             <p>Whenever we refer to something static, we mean something that belongs to a class, not to a particular instance or object of that class. Static methods on interfaces follow the same concept; they belong to the interface where they are declared.</p>
 
@@ -721,6 +760,7 @@
             <p><code class="java hljs"><span class="hljs-function"><span class="hljs-keyword">default</span> Comparator&lt;T&gt; <span class="hljs-title">thenComparingInt</span><span class="hljs-params">(ToIntFunction&lt;? <span class="hljs-keyword">super</span> T&gt; keyExtractor)</span></span></code></p>
 
             <p>Interface <code>static</code> methods are not inherited, you must prefix the method with the interface name:</p>
+<font size="2" color="blue">接口的静态（<code>static</code>）方法是不能被继承的，需加上接口名前缀：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Parallelizable</span></span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">log</span><span class="hljs-params">(String s)</span></span> {<br />
@@ -739,6 +779,7 @@
 	  }</code></p>
 
             <p>The output is:</p>
+<font size="2" color="blue">将输出：</font>
 
             <p><code class="java hljs">Parallelizable parallel The end</code></p>
 
