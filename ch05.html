@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-cn">
 
 <head>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -10,7 +10,7 @@
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.2.2.min.js"></script>
 
     <script src="js/common-sections.js"></script>
 </head>
@@ -25,7 +25,9 @@
 
 
                 <h1><i class="chapter">Chapter FIVE</i><br />
-			  Enumerations</h1>
+			  Enumerations<br />
+<font size="2" color="blue">第五章<br />枚举</font>
+                </h1>
 
                 <p><br /></p>
 
@@ -46,8 +48,10 @@
         <div class="column">
 
             <h2>Enumerations</h2>
+<font size="2" color="blue">枚举</font>
 
             <p>Let's say our application uses three states or values for the volume of playing a song: high, medium, low. We typically model this with some "constants", like this:</p>
+<font size="2" color="blue">假设一个应用程序需要使用三个状态来表示音量：高（high）、中（medium）、低（low）。我们通常用将它定义为“常量（constants）”，就像这样：</font>
 
             <p><code class="java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Volume</span></span> {<br />
 	  <span class="hljs-keyword">&nbsp; &nbsp; public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> HIGH = <span class="hljs-number">100</span>;<br />
@@ -56,6 +60,7 @@
 	  }</code></p>
 
             <p>However, this is not a good implementation. Consider a method to change the volume:</p>
+<font size="2" color="blue">然而，这并非最优方案。以下是修改音量的代码：</font>
 
             <p><code class="java hljs"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">changeVolumen</span><span class="hljs-params">(<span class="hljs-keyword">int</span> volume)</span></span> {<br />
 	  &nbsp; &nbsp; ...<br />
@@ -64,55 +69,69 @@
 	  app.changeVolumen(Volume.HIGH);</code></p>
 
             <p>What is stopping someone to call this method with an arbitrary value like:</p>
+<font size="2" color="blue">但我们无法阻止别人对其传递一个任意值，如下所示：</font>
 
             <p><code class="java hljs">app.changeVolume(<span class="hljs-number">10000</span>);</code></p>
 
             <p>Of course, we can implement some checks, but this just makes the problem more complicated. Luckily, enumerations (or enums for short) provide a nice solution to this issue.</p>
 
+<font size="2" color="blue">当然，我们也可以对其进行校验，但这只会使问题更加复杂化。但幸运的是，枚举（enumerations或enums）可以很好地解决这个问题。</font>
+
             <p>An <i>enum</i> is a type (like a class or an interface) that represents a <b>FIXED</b> list of values (you can think of these as constants).</p>
+<font size="2" color="blue">枚举（<i>enum</i>）与类（class）或接口（interface）相同，是一种类型，可以将其理解为一个拥有<b>固定</b>的值列表（也可以认为是拥有常量的列表）。</font>
 
             <p>So we can use an enum to represent the volume of a sound in our application (notice the use of <code>enum</code> instead of <code>interface</code>):</p>
+<font size="2" color="blue">所以我们可以使用枚举来定义上列例子中的音量值（注意是使用<code>enum</code>而不是<code>interface</code>）：</font>
 
             <p><code class="java hljs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> Volume {<br />
 	  &nbsp; &nbsp; HIGH, MEDIUM, LOW<br />
 	  }</code></p>
 
             <p>Notice that since the values are "constants" (they are implicitly <code>public</code>, <code>static</code>, and <code>final</code>) the convention of using all caps is followed.</p>
+<font size="2" color="blue">注意，因为这些值是“常量”（它们是隐式的<code>public</code>、<code>static</code>和<code>final</code>），所以遵循所有约定为大写字母的编码规范。</font>
 
             <p>Also, notice that the values are comma-separated and because the <code>enum</code> only contains a list of values, the semicolon is optional after the last one.</p>
+<font size="2" color="blue">同时还需要注意枚举的多个值是逗号分隔的，因为<code>enum</code>类型只包含一个值列表，所以最后面的分号是可选的（可以添加分号，也可以不添加）。</font>
 
             <p>This way, we can define the <code>changeVolume</code> method as:</p>
+<font size="2" color="blue">接下来，我们定义一个<code>changeVolume</code>方法，如下：</font>
 
             <p><code class="java hljs"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">changeVolumen</span><span class="hljs-params">(Volume volume)</span></span> {<br />
 	  &nbsp; &nbsp; ...<br />
 	  }</code></p>
 
             <p>Passing any other object that is not a <code>Volume</code>, will generate a compile-time error:</p>
+<font size="2" color="blue">这样一来就只能传递<code>Volume</code>对象作为参数，否则会编译错误：</font>
 
             <p><code class="java hljs">changeVolume(Volume.HIGH); <span class="hljs-comment">// All good</span><br />
 	  changeVolume(-<span class="hljs-number">1</span>); <span class="hljs-comment">// Compile-time error</span></code></p>
 
             <p>The method is now type-safe, meaning that we can't assign invalid values.</p>
+<font size="2" color="blue">现在这个方法参数已经是类型安全的了，无法传入不被允许的值。</font>
 
             <p>By the way, because of something we review later, you cannot use the new operator to get a reference of an enum, so we just get the reference directly:</p>
 
             <p><code class="java hljs">Volume level = Volume.LOW;</code></p>
 
             <p>You can also get an enum from a string, for example:</p>
+<font size="2" color="blue">您还可以通过字符串得到一个枚举，例如：</font>
 
             <p><code class="java hljs">Volume level = Volume.valueOf(<span class="hljs-string">"LOW"</span>);</code></p>
 
             <p>Just be careful, this method is case sensitive:</p>
+<font size="2" color="blue">但要注意，这个方法是区分大小写的：</font>
 
             <p><code class="java hljs">Volume level = Volume.valueOf(<span class="hljs-string">"Low"</span>); <span class="hljs-comment">// Run-time exception</span></code></p>
 
             <p>To get all the enums of a particular type use the method <code>values()</code>, that returns an array of enums in the same order in which they were declared and that pairs great with a <code>for-each</code> statement:</p>
+<font size="2" color="blue">可以调用<code>values()</code>方法来获取枚举所有元素，它将返回一个顺序的数组，我们可以遍历该数组得到其所有的元素：</font>
 
             <p><code class="java hljs"><span class="hljs-keyword">for</span>(Volume v: Volume.values()) {<br />
 	  &nbsp; &nbsp;System.out.print(v.name() + <span class="hljs-string">", "</span>);<br />
 	  }</code></p>
 
             <p>The output:</p>
+<font size="2" color="blue">输出：</font>
 
             <p><code class="java hljs">HIGH, MEDIUM, LOW,</code></p>
 
