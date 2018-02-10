@@ -136,34 +136,42 @@
             <p><code class="java hljs">HIGH, MEDIUM, LOW,</code></p>
 
             <h2>Working with Enums</h2>
+<font size="2" color="blue">枚举的运用</font>
 
             <p>In the first example, <code>HIGH</code> was equal to <code>100</code>. But now that we are using enums, what is the value of <code>HIGH</code>?</p>
+<font size="2" color="blue">在第一个例子中，<code>HIGH</code>的值为<code>100</code>。但是我们使用枚举，如何给<code>HIGH</code>赋值呢？</font>
 
             <p>If we print its value:</p>
+<font size="2" color="blue">假如我们想打印它的值：</font>
 
             <p><code class="java hljs">System.out.println(Volume.HIGH);</code></p>
 
             <p>The output will be the name of the enum:</p>
+<font size="2" color="blue">这将输出枚举的名称：</font>
 
             <p><code>HIGH</code></p>
 
             <p>This is equivalent to invoke the <code>name()</code> method that all enums have:</p>
+<font size="2" color="blue">这等同于调用枚举的<code>name()</code>方法：</font>
 
             <p><code class="java hljs">System.out.println(Volume.HIGH.name());</code></p>
 
             <p>In other words, the <code>toString()</code> implementation of an enum calls the <code>name()</code> method.</p>
+<font size="2" color="blue">换句话说，枚举<code>toString()</code>的实现就是调用的<code>name()</code>方法。</font>
 
             <p>Enums also have a zero-based value that corresponds to the order in which they're declared. You can get it with the <code>ordinal()</code> method:</p>
+<font size="2" color="blue">枚举也可以通过调用<code>ordinal()</code>方法得到对应的顺序值（从0开始）：</font>
 
             <p><code class="java hljs">System.out.println(Volume.HIGH.ordinal());<br />
 	  System.out.println(Volume.LOW.ordinal());</code></p>
 
             <p>The output will be:</p>
+<font size="2" color="blue">将输出：</font>
 
-            <p><code class="hljs">0<br />
-	  2</code></p>
+            <p><code class="hljs">0<br />2</code></p>
 
             <p>But this might not be enough for all cases (like in our example). So we can define a constructor (that is called the first time the <code>enum</code> is used) that accepts a parameter that will be stored in an instance variable:</p>
+<font size="2" color="blue">但是，这还无法满足所有的场景（比如我们之前的例子）。所以我们还可以为枚举定义一个构造函数（第一次调用<code>enum</code>时），利用构造函数来创建枚举实例，该构造函数可以接受一个参数并将其存储在实例变量中：</font>
 
             <p><code class="java hljs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> Volume {<br />
 	  &nbsp; &nbsp; HIGH(<span class="hljs-number">100</span>), MEDIUM(<span class="hljs-number">50</span>), LOW(<span class="hljs-number">20</span>);<br />
@@ -178,12 +186,14 @@
 	  }</code></p>
 
             <p>The only restriction is the constructor must be <code>private</code>. Otherwise, the compiler will throw an error. Notice that a getter method was also added.</p>
+<font size="2" color="blue">唯一的限制是该构造函数必须是<code>private</code>的。否则编译器将抛出错误。注意，我们还添加了一个get方法。</font>
 
             <p>We can add a setter method also, but generally, it is not needed since enums work more like constants. However, keep in mind that changing the value of the instance variable is allowed, while reassigning the <code>enum</code> is not because they are implicitly <code>final</code> and cannot be changed after their creation:</p>
 
             <p><code class="java hljs"><span class="hljs-comment">// Compile-time error<br /></span>Volume.HIGH = Volume.MEDIUM;</code></p>
 
             <p>Talking about compile-time errors, the following statements will also generate one:</p>
+<font size="2" color="blue">下面的例子也将无法通过编译：</font>
 
             <p><code class="java hljs"><span class="hljs-comment">// Use Volume.HIGH.ordinal()<br /></span><span class="hljs-keyword">if</span>(Volume.HIGH == <span class="hljs-number">0</span>) {<br />
 	  &nbsp; &nbsp; ...<br />
@@ -210,6 +220,7 @@
 	  }</code></p>
 
             <p>An <code>enum</code> type <b>CANNOT</b> extend from a class because implicitly, all enums extend from <code>java.lang.Enum</code>. What you <b>CAN</b> do is implement interfaces:</p>
+<font size="2" color="blue"><code>枚举</code>类是<b>不允许</b>继承一个类的，因为所有的枚举都隐私继承于<code>java.lang.Enum</code>，但枚举是<b>允许</b>实现接口的：</font>
 
             <p><code class="java hljs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> Volume implements AnInterface { ... }</code></p>
 
@@ -245,8 +256,10 @@
 	  }</code></p>
 
             <p>In the case of <code>printValue()</code>, <code>MEDIUM</code> and <code>LOW</code> will use the enum-level version that just prints the value while <code>HIGH</code> will use its own version. If the method is abstract, every <code>enum</code> has to implement it. Otherwise, a compile-time error will be thrown.</p>
+<font size="2" color="blue">在这个例子中，<code>MEDIUM</code>和<code>LOW</code>使用的是枚举的<code>printValue()</code>方法，而<code>HIGH</code>使用自己的<code>printValue()</code>方法。如果是抽象方法，那么所有枚举都必须继承它，否则将无法通过编译。</font>
 
             <h2>Enums as Singletons</h2>
+<font size="2" color="blue">枚举是单例的</font>
 
             <p>Remember back in Chapter 1 when I mention that enums are singletons? Do you know why now?</p>
 
