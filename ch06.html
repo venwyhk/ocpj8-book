@@ -116,23 +116,29 @@
 	  <span style="color: rgb(0, 106, 0);">// Generic type<br /></span>List&lt;String&gt; generic = <span class="hljs-keyword">new</span> ArrayList&lt;String&gt;();&nbsp;</code></p>
 
             <h2>The Diamond Operator</h2>
+<font size="2" color="blue">"菱形运算符"</font>
 
             <p>Since Java 7, instead of specifying the generic type on both sides of the assignment:</p>
+<font size="2" color="blue">从Java7开始，创建对象不用必须在尖括号里赋值：</font>
 
             <p><code class="java hljs">List&lt;List&lt;String&gt;&gt; generic = <span class="hljs-keyword">new</span> ArrayList&lt;List&lt;String&gt;&gt;();</code></p>
 
             <p>We can simplify the creation of the object by just writing:</p>
+<font size="2" color="blue">我们可以简化为下面的写法：</font>
 
             <p><code class="java hljs">List&lt;List&lt;String&gt;&gt; generic = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();</code></p>
 
             <p>The short form on the right side is called the <i>diamond operator</i> (because it looks like a diamond).</p>
+<font size="2" color="blue">右边的"<>"我们称之为"菱形运算符"（<i>diamond operator</i>）。</font>
 
             <p>But be careful. The above example is different than:</p>
+<font size="2" color="blue">但要注意。下面的例子与上面是不同的：</font>
 
             <p><code class="java hljs"><span class="hljs-comment">// Without the diamond operator, the raw type is used</span><br />
 	  List&lt;List&lt;String&gt;&gt; generic = <span class="hljs-keyword">new</span> ArrayList();</code></p>
 
             <p>You can only use the diamond operator if the compiler can infer the parameter type(s) from the context. The good news is that in Java 8, type inference was improved:</p>
+<font size="2" color="blue">只有在使用"菱形运算符"时，编译器才会通过上下文来推断类型。另外，Java8还对此做了一些改进：</font>
 
             <p><code class="java hljs"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">testGenericParam</span><span class="hljs-params">(List&lt;String&gt; list)</span></span> { }<br />
 	  <span class="hljs-function"><span class="hljs-keyword"><br />
@@ -143,8 +149,10 @@
 	  }</code></p>
 
             <h2>Generic Classes</h2>
+<font size="2" color="blue">泛型类</font>
 
             <p>Looking at the definition of <code>List</code> and a couple of its methods, we can see how this class is designed to work with generics:</p>
+<font size="2" color="blue">看看<code>List</code>的定义和与它相关的方法，我们可以看出是如何设计泛型类的：</font>
 
             <p><code class="java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">List</span>&lt;<span class="hljs-title">E</span>&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title">Collection</span>&lt;<span class="hljs-title">E</span>&gt;</span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; boolean</span> <span class="hljs-title">add</span><span class="hljs-params">(E e)</span></span>;<br />
@@ -152,20 +160,27 @@
 	  }</code></p>
 
             <p>We can see how a generic type is defined for classes and interfaces. It's just a matter of declaring a <i>type parameter</i> next to the class (or interface) name.</p>
+<font size="2" color="blue">我们可以看到用泛型来定义了类和接口。它在类（和接口）旁边声明了一个<i>类型参数</i>。</font>
 
             <p>By the way, <code>E</code> is just an identifier, like a named variable. It can be anything you want. However, the convention is to use single uppercase letters. Some common letters are:</p>
+<font size="2" color="blue">顺便说一下，<code>E</code>只是一个标识符，就像命名一个变量一样。它可以是你想要的任何对象。但我们更习惯用单个大写字母来表示。以下是一些表示泛型类型常用字母以及它约定俗成的意义：</font>
 
             <ul>
                 <li><code>E</code> for element</li>
+<font size="2" color="blue"><code>E</code>代表元素（element）</font>
 
                 <li><code>K</code> for a map key</li>
+<font size="2" color="blue"><code>K</code>代表主键（key）</font>
 
                 <li><code>V</code> for a map value</li>
+<font size="2" color="blue"><code>V</code>代表值（value）</font>
 
                 <li><code>T</code>, <code>U</code> for data types</li>
+<font size="2" color="blue"><code>T</code>代表数据类型（data types）</font>
             </ul>
 
             <p>This way, when a <code>List</code> is declared like this:</p>
+<font size="2" color="blue">这样，当声明一个<code>List</code>时：</font>
 
             <p><code class="java hljs">List&lt;String&gt; list = <span class="hljs-keyword">null</span>;</code></p>
 
@@ -174,6 +189,7 @@
             <p>So generic classes give us a lot of flexibility.</p>
 
             <p>For example, consider this class:</p>
+<font size="2" color="blue">例如，下面这个类：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Holder</span></span> {<br />
 	  <span class="hljs-keyword">&nbsp; &nbsp; private</span> String s;<br />
@@ -189,6 +205,7 @@
 	  }</code></p>
 
             <p>There's nothing wrong with it, but it only accept objects of type <code>String</code>. What if later we need a class just like that, but that works with <code>Integer</code> types? Do we create an <code>Integer</code> version?</p>
+<font size="2" color="blue">这段代码没有问题，但它只接受<code>String</code>参数类型的对象。如果以后我们需要一个<code>Integer</code>参数类型的类该怎么办呢？要新创建一个吗？</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IntegerHolder</span></span> {<br />
 	  <span class="hljs-keyword">&nbsp; &nbsp; private</span> Integer s;<br />
@@ -204,14 +221,17 @@
 	  }</code></p>
 
             <p>Duplicate code feels and looks wrong. An <code>Object</code> version? No, thank you, we will need to add casts everywhere.</p>
+<font size="2" color="blue">这存在许多重复的代码，看上去不那么优雅。我们真的需要为每个对象创建一个类吗？不，谢谢，我们要避免这种情况的发生。</font>
 
             <p>Generics help us in cases like this. Just declare a type parameter:</p>
+<font size="2" color="blue">泛型可以帮我们解决这个问题。只需声明一个类型参数：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Holder</span>&lt;<span class="hljs-title">T</span>&gt;</span> {<br />
 	  <span class="hljs-comment">&nbsp; &nbsp; // ...</span><br />
 	  }</code></p>
 
             <p>And the generic type <code>T</code> will be available anywhere within the class:</p>
+<font size="2" color="blue">泛型类型<code>T</code>在类中的任何地方都可以使用：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Holder</span>&lt;<span class="hljs-title">T</span>&gt;</span> {<br />
 	  <span class="hljs-keyword">&nbsp; &nbsp; private</span> T t;<br />
@@ -227,17 +247,20 @@
 	  }</code></p>
 
             <p>Now, when an instance is created, we just specify the type of <code>T</code> for that instance:</p>
+<font size="2" color="blue">现在，当创建一个实例时，我们只需指定该实例的<code>T</code>类型，如下：</font>
 
             <p><code class="java hljs">Holder&lt;String&gt; h1 = <span class="hljs-keyword">new</span> Holder&lt;&gt;(<span class="hljs-string">"Hi"</span>);<br />
 	  Holder&lt;Integer&gt; h2 = <span class="hljs-keyword">new</span> Holder&lt;&gt;(<span class="hljs-number">1</span>);<br />
 	  String s = h1.getObject();</code></p>
 
             <p>If we don't specify a type parameter, we will be using the raw type (that uses the <code>Object</code> type):</p>
+<font size="2" color="blue">如果我们不指定参数类型，那么将使用原始类型（即<code>Object</code>）：</font>
 
             <p><code class="java hljs">Holder h3 = <span class="hljs-keyword">new</span> Holder(<span class="hljs-string">"Hi again"</span>);<br />
 	  Object o = h3.getObject();</code></p>
 
             <p>If we need it, we can have more than one type parameter:</p>
+<font size="2" color="blue">如果由需要，我们也可以定义多个泛型类型：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Holder</span>&lt;<span class="hljs-title">T</span>, <span class="hljs-title">U</span>&gt;</span> {<br />
 	  <span class="hljs-comment">&nbsp; &nbsp; // ...</span><br />
