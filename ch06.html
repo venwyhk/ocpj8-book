@@ -56,46 +56,57 @@
 <font size="2" color="blue">泛型</font>
 
             <p>Without generics, you can declare a <code>List</code> like this:</p>
+<font size="2" color="blue">如果不使用泛型，您可以这样声明一个<code>List</code>：</font>
 
             <p><code class="java hljs">List list = <span class="hljs-keyword">new</span> ArrayList();</code></p>
 
             <p>Because a <code>List</code>, by default, accepts objects of any type, you can add elements of different types to it:</p>
+<font size="2" color="blue">因为默认情况下<code>List</code>接受任何类型的对象，您可以往里添加任何类型的元素：</font>
 
             <p><code class="java hljs">list.add(<span class="hljs-string">"a"</span>);<br />
 	  list.add(<span class="hljs-keyword">new</span> Integer(<span class="hljs-number">1</span>));<br />
 	  list.add(Boolean.TRUE);</code></p>
 
             <p>And get values like this:</p>
+<font size="2" color="blue">并通过下面这样获取元素：</font>
 
             <p><code class="java hljs">String s = (String) list.get(<span class="hljs-number">0</span>);</code></p>
 
             <p>This can lead to ugly runtime errors and more complexity. Because of that, generics were added in Java 5 as a mechanism for type checking.</p>
+<font size="2" color="blue">但这样可能会导致运行时错误或者更加严重的问题。正因如此，从Java5开始可以利用泛型来对类型进行校验。</font>
 
             <p>A generic is a type declared inside angle brackets, following the class name. For example:</p>
+<font size="2" color="blue">泛型是在尖括号内声明的，与类名相似。例如下面这样:</font>
 
             <p><code class="java hljs">List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;String&gt;();</code></p>
 
             <p>By adding the generic type to <code>List</code>, we are telling the <b>COMPILER</b> to check that only <code>String</code> values can be added to the list:</p>
+<font size="2" color="blue">通过将泛型类型添加到<code>List</code>中，编译器（<b>COMPILER</b>）将会检查列表中的元素是否都为<code>String</code>类型：</font>
 
             <p><code class="java hljs">list.add(<span class="hljs-string">"a"</span>); <span class="hljs-comment">// OK</span><br />
 	  list.add(<span class="hljs-keyword">new</span> Integer(<span class="hljs-number">1</span>)); <span class="hljs-comment">// Compile-time error</span><br />
 	  list.add(Boolean.TRUE); <span class="hljs-comment">// Compile-time error</span></code></p>
 
             <p>Since now we only have values of one type, we can safely get elements without a cast:</p>
+<font size="2" color="blue">既然已经定义了一种类型，那么我们可以安全地获取元素，而不用强制转换类型：</font>
 
             <p><code class="java hljs">String s = list.get(<span class="hljs-number">0</span>);</code></p>
 
             <p>It's important to emphasize that generics are a thing of the compiler. At runtime, Java doesn't know about generics.</p>
+<font size="2" color="blue">需要强调一点是，泛型是在编译时进行校验。Java在运行中是不关心泛型的。</font>
 
             <p>Under the hood, the compiler inserts all the checks and casts for you, but at runtime, a generic type is seen by Java as a <code>java.lang.Object</code> type.</p>
 
             <p>In other words, the compiler verifies that you're working with the right type and then, generates code with the <code>java.lang.Object</code> type.</p>
+<font size="2" color="blue">换句话说，就是编译器会确保使用了正确的类型并且能够工作，然后会将其转换为<code>java.lang.Object</code>类型。</font>
 
             <p>The process of replacing all references to generic types with <code>Object</code> is called <i>type erasure</i>.</p>
 
             <p>Because of this, at runtime, <code>List&lt;String&gt;</code> and <code>List&lt;Integer&gt;</code> are the same, because the type information has been erased by the compiler (they are just seen as <code>List</code>).</p>
+<font size="2" color="blue">所以说，在运行时，<code>List&lt;String&gt;</code>和<code>List&lt;Integer&gt;</code>是相同的，因为编译器已经将类型信息删除了（等同于<code>List</code>）。</font>
 
             <p>Generics only work with objects. Something like the following won't compile:</p>
+<font size="2" color="blue">所以泛型只能用于对象，下面个例子将无法编译：</font>
 
             <p><code class="java hljs">List&lt;<span class="hljs-keyword">int</span>&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;<span class="hljs-keyword">int</span>&gt;();</code></p>
 
