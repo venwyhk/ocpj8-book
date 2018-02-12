@@ -267,8 +267,10 @@
 	  }</code></p>
 
             <h2>Generic Methods</h2>
+<font size="2" color="blue">泛型方法</font>
 
             <p>We can also declare type parameters in any method (not for the whole class). But the syntax is a little different, for example:</p>
+<font size="2" color="blue">我们可以在方法中声明参数类型（而不是类中）。但是语法上有一些区别，例如：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Utils</span></span> {<br />
 	  <span class="hljs-keyword">&nbsp; &nbsp; public</span> <span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">(T t)</span></span> {<br />
@@ -277,6 +279,7 @@
 	  }</code></p>
 
             <p>This defines a method that takes an argument of type <code>T</code>. Here are two more examples of generic methods:</p>
+<font size="2" color="blue">这里为方法定义了一个<code>T</code>类型的参数。下面是有两个参数的泛型方法例子：</font>
 
             <p><code class="java hljs">&lt;T&gt; <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">genericMethod1</span><span class="hljs-params">(List&lt;T&gt; list)</span></span> { }<br />
 	  &lt;T, U&gt; <span class="hljs-function">T <span class="hljs-title">genericMethod2</span><span class="hljs-params">(U u)</span></span> {<br />
@@ -285,18 +288,23 @@
 	  }</code></p>
 
             <p>When a method declares its own generic type, it has to be specified before the return type (in contrast to classes, which declare it after the class name).</p>
+<font size="2" color="blue">当方法声明它的泛型参数类型时，需要在方法的返回值前面进行指定（这与类相反，类是在类名后指定）。</font>
 
             <p>To call the method of the first example, you can do it normally:</p>
+<font size="2" color="blue">您可以用下面的方式区调用第一个例子中的方法：</font>
 
             <p><code class="java hljs">Utils().print(<span class="hljs-number">10</span>);</code></p>
 
             <p>Or by explicitly specifying the type between the dot and the name of the method:</p>
+<font size="2" color="blue">或者显式指定参数类型，如下例：</font>
 
             <p><code class="java hljs">Utils().&lt;Integer&gt;print(<span class="hljs-number">10</span>);</code></p>
 
             <h2>Wildcards</h2>
+<font size="2" color="blue">通配符</font>
 
             <p>Generics are useful in many cases, but not all. We have two main problems.</p>
+<font size="2" color="blue">泛型的用处很大，但依然存在下面两个问题：</font>
 
             <p>You could think that since <code>ArrayList</code> implements <code>List</code>, and because <code>String</code> is a subclass of <code>Object</code>, that something like this is fine:</p>
 
@@ -311,8 +319,10 @@
             <p><code class="java hljs">List&lt;?&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;String&gt;();</code></p>
 
             <p>It will compile.</p>
+<font size="2" color="blue">这样就能编译了。</font>
 
             <p>The unbounded wildcard type (<code>&lt;?&gt;</code>) means that the type of the list is unknown so that it can match <b>ANY</b> type.</p>
+<font size="2" color="blue">问号通配符（<code>&lt;?&gt;</code>）表示该List的类型未知，因此它可以匹配任何类型。</font>
 
             <p>In fact you can consider in a way <code>List&lt;?&gt;</code> as the superclass of all <code>List</code>s, since you can assign any type of <code>List</code>:</p>
 
@@ -325,25 +335,31 @@
 	  }</code></p>
 
             <p>Since the compiler doesn't know the type of the elements of <code>List&lt;?&gt;</code>, we have to use <code>Object</code> to assure there won't be any problem at runtime.</p>
+<font size="2" color="blue">由于编译器不知道<code>List&lt;?&gt;</code>元素的类型，所以我们必须使用<code>Object</code>来确保运行时不会出问题。</font>
 
             <p>But don't think that <code>List&lt;Object&gt;</code> is the same as <code>List&lt;?&gt;</code>. It's not. With <code>List&lt;Object&gt;</code> the previous examples won't compile.</p>
+<font size="2" color="blue">但不要认为<code>List&lt;Object&gt;</code>就等同于<code>List&lt;?&gt;</code>。如果在以上的例子中使用<code>List&lt;Object&gt;</code>是无法通过编译的。</font>
 
             <p>There's another difference. The following code won't compile:</p>
+<font size="2" color="blue">另外，还有一个区别。下面这段代码是无法通过编译的：</font>
 
             <p><code class="java hljs">List&lt;?&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;String&gt;();<br />
 	  list.add(<span class="hljs-string">"Hi"</span>); <span class="hljs-comment">// Compile-time error</span></code></p>
 
             <p>Since the compiler cannot infer the type of the elements, it can't assure type safety (you can only insert null because it doesn't have a type).</p>
+<font size="2" color="blue">因为编译器不知道元素的类型，所以不能确保类型安全（您只能传入null值，因为null没有类型）。</font>
 
             <p>To avoid this problem, the compiler generates an error when you try to modify the list. This way, when using an unbounded wildcard the list becomes <b>IMMUTABLE</b>.</p>
 
             <p>This can be a problem or a benefit, depending on how you use it. This wildcard is used in arguments of methods where the code just uses methods of the generic class or from <code>Object</code>, not of a particular type, for example:</p>
+<font size="2" color="blue">这有利有弊，取决于您如何使用它。当此通配符用于方法的参数中时，其中的代码既可以使用泛型的方法，也可以使用<code>Object</code>的方法，而不能使用特定类型的方法，例如：</font>
 
             <p><code class="java hljs"><span class="hljs-function"><span class="hljs-keyword"><span style="color: rgb(0, 106, 0);">// You can pass any type of List here<br /></span>int</span> <span class="hljs-title">getSize</span><span class="hljs-params">(List&lt;?&gt; list)</span></span> { &nbsp;<br />
 	  <span class="hljs-keyword">&nbsp; &nbsp; return</span> list.size();<br />
 	  }</code></p>
 
             <p>That was the first problem. The second problem is that when working with a type parameter, we can only use methods from <code>Object</code> since we don't know the exact type of the type parameter, for example:</p>
+<font size="2" color="blue">这是第一个问题。第二个问题是，在处理参数类型时，我们只能使用<code>Object</code>的方法，因为我们不知道确切的参数类型，例如：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Printer</span>&lt;<span class="hljs-title">T</span>&gt;</span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp;public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">(T t)</span></span> {<br />
@@ -353,6 +369,7 @@
 	  }</code></p>
 
             <p>The solution is to use the so-called bounded wildcards:</p>
+<font size="2" color="blue">解决办法是使用以下这种通配符（so-called bounded wildcard）：</font>
 
             <ul>
                 <li><code>? extends T</code> (Upper-bounded wildcard)</li>
@@ -361,10 +378,13 @@
             </ul>
 
             <p>By using these wildcards, you can relax a little the restrictions imposed by generics. This will also allow you to use some sort of polymorphism or subtyping with generics, and for that same reason, this is the trickiest part of the exam.</p>
+<font size="2" color="blue">通过使用这类通配符，你可以让泛型的限制稍微少一些。这样也可以让你使用某种泛型类型的子类型（多态），出于这个原因，这是成为了考试中的难点。</font>
 
             <p>Let's start with the upper-bounded wildcard.</p>
+<font size="2" color="blue">我们先从upper-bounded通配符说起。</font>
 
             <p>The error in the example above can be solved using the upper-bounded generic (not exactly a wildcard) this way:</p>
+<font size="2" color="blue">以上例子的错误可以用upper-bounded通配符（不完全通配符）来解决：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Printer</span>&lt;<span class="hljs-title">T</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">String</span>&gt;</span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp;public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">print</span><span class="hljs-params">(T t)</span></span> {<br />
@@ -373,11 +393,13 @@
 	  }</code></p>
 
             <p><code>&lt;T extends String&gt;</code> means that any class that extends (or implements when working with an interface) <code>String</code> (or <code>String</code> itself) can be used as the type parameter. As <code>T</code> is replaced by <code>String</code>, it's safe to its methods:</p>
+<font size="2" color="blue"><code>&lt;T extends String&gt;</code>意味着任何extends（或implements接口）<code>String</code>（或<code>String</code>本身）的类都可以用作类型参数。当<code>T</code>被<code>String</code>替换时，它的方法可以安全使用：</font>
 
             <p><code class="java hljs">Printer&lt;String&gt; p1 = <span class="hljs-keyword">new</span> Printer&lt;&gt;(); <span class="hljs-comment">// OK</span><br />
 	  <span style="color: rgb(0, 106, 0);">// Error, Byte is not a String<br /></span>Printer&lt;Byte&gt; p2 = <span class="hljs-keyword">new</span> Printer&lt;&gt;();&nbsp;</code></p>
 
             <p>The upper-bounded wildcard can also solve this problem:</p>
+<font size="2" color="blue">upper-bounded通配符也可以解决下面这样的问题：</font>
 
             <p><code class="java hljs">List&lt;Object&gt; list =<br />
 	  <span class="hljs-keyword">&nbsp; &nbsp; &nbsp; &nbsp; new</span> ArrayList&lt;String&gt;(); <span class="hljs-comment">// Error</span><br />
@@ -385,12 +407,15 @@
 	  <span class="hljs-keyword">&nbsp; &nbsp; &nbsp; &nbsp; new</span> ArrayList&lt;String&gt;(); <span class="hljs-comment">// OK!</span></code></p>
 
             <p>Still, we can't modify the list:</p>
+<font size="2" color="blue">但我们不能修改这个list：</font>
 
             <p><code class="java hljs">list2.add(<span class="hljs-string">"Hi"</span>); <span class="hljs-comment">// Compile-time error</span></code></p>
 
             <p>The reason is the same. The compiler still can't know for sure what type will the list hold (we could add any type).</p>
+<font size="2" color="blue">原因也是一样的。编译器仍然不能确定list保存的类型（我们可以添加任何类型）。</font>
 
             <p>Notice then, that <code>List&lt;Number&gt;</code> is more restrictive than <code>List&lt;? extends Number&gt;</code>, in the sense that the former only accepts direct assignments of type <code>List&lt;Number&gt;</code>, but the latter, accepts direct assignments of <code>List&lt;Integer&gt;</code>, <code>List&lt;Float&gt;</code>, etc. For example:</p>
+<font size="2" color="blue">需要注意，<code>List&lt;Number&gt;</code>比<code>List&lt;? extends Number&gt;</code>严格吗？，实际上，前者只接受类型<code>List&lt;Number&gt;</code>的赋值，而后者接受包括<code>List&lt;Integer&gt;</code>, <code>List&lt;Float&gt;</code>的赋值：</font>
 
             <p><code class="java hljs">List&lt;Integer&gt; listInteger = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br />
 	  List&lt;Float&gt; listFloat = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br />
@@ -407,24 +432,31 @@
 	  listExtendsNum = listFloat; <span class="hljs-comment">// OK</span></code></p>
 
             <p>Finally, we have the lower-bounded wildcard. If we have a list like this:</p>
+<font size="2" color="blue">最后，我们来说lower-bounded通配符，假如有以下list：</font>
 
             <p><code class="java hljs">List&lt;? <span class="hljs-keyword">super</span> Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();</code></p>
 
             <p>It means that list can be assigned to an <code>Integer</code> list (<code>List&lt;Integer&gt;</code>) or some supertype of <code>Integer</code> (like <code>List&lt;Number&gt;</code> or <code>List&lt;Object&gt;</code>).</p>
+<font size="2" color="blue">这意味着list可以是一个元素为<code>Integer</code>的列表（<code>List&lt;Integer&gt;</code>）或者<code>Integer</code>类型的超类型（如<code>List&lt;Number&gt;</code>或<code>List&lt;Object&gt;</code>）的列表。</font>
 
             <p>This time, since you know that the list would be typed to at least an <code>Integer</code>, it's safe for the compiler to allow modifications to the list:</p>
+<font size="2" color="blue">这次，因为您知道list将被传入至少一个<code>Integer</code>型变量，编译器允许对list进行这样操作：</font>
 
             <p><code class="java hljs">List&lt;? <span class="hljs-keyword">super</span> Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br />
 	  list.add(<span class="hljs-number">1</span>); <span class="hljs-comment">// OK!</span><br />
 	  list.add(<span class="hljs-number">2</span>); <span class="hljs-comment">// OK!</span></code></p>
 
             <p>Think about it, even if the list's type is <code>List&lt;Object&gt;</code>, an <code>Integer</code> can be assigned to an <code>Object</code> or a <code>Number</code> (or another superclass if there were another one) for that matter.</p>
+<font size="2" color="blue">思考一下，即使list类型定义为<code>List&lt;Object&gt;</code>，那么<code>Integer</code>可以作为<code>Object</code>或<code>Number</code>（或其它超类）进行传入。</font>
 
             <p>And what types can we add to the list?</p>
+<font size="2" color="blue">那我们能将哪些类型传入到这个list中呢？</font>
 
             <p>We can add instances of <code>T</code> or one of its subclasses because they are <code>T</code> also (in the example, <code>Integer</code> doesn't have subclasses, so we can only insert <code>Integer</code> instances).</p>
+<font size="2" color="blue">我们可以添加<code>T</code>或其子类的实例，因为它们也属于<code>T</code>（在该示例中，<code>Integer</code>没有子类，因此只能插入<code>Integer</code>实例）。</font>
 
             <p>So don't get confused, one thing is what can you assign and another thing is what you can add, for example:</p>
+<font size="2" color="blue">所以不要混淆，一个是能分配什么，另一个是能添加的，例如：</font>
 
             <p><code class="java hljs">List&lt;Integer&gt; listInteger = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br />
 	  List&lt;Object&gt; listObject = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br />
@@ -435,14 +467,18 @@
 	  listSuperNum = listObject; <span class="hljs-comment">// OK</span></code></p>
 
             <h2>Generic limitations</h2>
+<font size="2" color="blue">泛型的局限性</font>
 
             <p>We have talked about some of the limitations of generics, and others can be inferred from what we've reviewed, but anyway, here's a summary of all of them:</p>
+<font size="2" color="blue">其实我们已经讨论到了泛型的一些局限性，其它局限性的可以从上文中推断出来，但是即使如此，也有必要做一下总结：</font>
 
             <p>Generics don't work with primitive types:</p>
+<font size="2" color="blue">原始类型不能作为泛型：</font>
 
             <p><code class="java hljs"><span style="color: rgb(0, 106, 0);">// Use Wrappers instead<br /></span>List&lt;<span class="hljs-keyword">int</span>&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();&nbsp;</code></p>
 
             <p>You cannot create an instance of a type parameter:</p>
+<font size="2" color="blue">不能创建参数类型的实例：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span>&lt;<span class="hljs-title">T</span>&gt;</span> {<br />
 	  &nbsp; &nbsp;T var = <span class="hljs-keyword">new</span> T();<br />
@@ -450,6 +486,7 @@
 	  }</code></p>
 
             <p>You cannot declare <code>static</code> fields of a type parameter:</p>
+<font size="2" color="blue">不能声明<code>static</code>字段为参数类型：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span>&lt;<span class="hljs-title">T</span>&gt;</span> {<br />
 	  <span class="hljs-comment">&nbsp; &nbsp;// If a static member is shared by many instances,<br /></span> <span class="hljs-comment">&nbsp; &nbsp;// and each instance can declare a different type,<br /></span> <span class="hljs-comment">&nbsp; &nbsp;// what is the actual type of var?</span><br />
@@ -457,6 +494,7 @@
 	  }</code></p>
 
             <p>Due to type erasure, you cannot use <code>instanceof</code> with generic types:</p>
+<font size="2" color="blue">由于类型模糊，不能对泛型类型的使用<code>instanceof</code>：</font>
 
             <p><code class="java hljs"><span class="hljs-keyword">if</span>(obj <span class="hljs-keyword">instanceof</span> List&lt;Integer&gt;) { <span class="hljs-comment">// Error</span><br />
 	  }<br />
@@ -465,6 +503,7 @@
 	  <span style="color: rgb(0, 106, 0);">&nbsp; &nbsp; // wildcard to verify that obj is a List<br /></span><span style="font-size: 0.88em;">}&nbsp;</span></code></p>
 
             <p>You cannot instantiate an array of generic types</p>
+<font size="2" color="blue">泛型类型数组不能实例化：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span>&lt;<span class="hljs-title">T</span>&gt;</span> {<br />
 	  &nbsp; &nbsp; T[] array; <span class="hljs-comment">// OK</span><br />
@@ -473,6 +512,7 @@
 	  }</code></p>
 
             <p>You cannot create, catch, or throw generic types</p>
+<font size="2" color="blue">不能创建、捕获或抛出泛型类型：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GenericException</span>&lt;<span class="hljs-title">T</span>&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title">Exception</span></span> { } <span class="hljs-comment">// Error</span><br />
 	  <br />
@@ -485,6 +525,7 @@
 	  }</code></p>
 
             <p>However, you can use a type parameter in a <code>throws</code> clause:</p>
+<font size="2" color="blue">但可以在<code>throws</code>的子句中使用参数类型：</font>
 
             <p><code class="java hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span>&lt;<span class="hljs-title">T</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Exception</span>&gt;</span> {<br />
 	  <span class="hljs-function"><span class="hljs-keyword">&nbsp; &nbsp; public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> T</span> { } <span class="hljs-comment">// OK<br /></span> }</code></p>
