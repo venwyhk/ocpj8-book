@@ -24,13 +24,17 @@
             <div class="chapter-title">
 
                 <h1><i class="chapter">Chapter SEVEN</i><br />
-				Collections</h1>
+				Collections<br />
+<font size="2" color="blue">第七章<br />容器</font>
+                </h1>
 
                 <p><br /></p>
 
                 <h3 style="text-align: center;"><i>Exam Objectives</i></h3>
+<p style="text-align: center;"><i><font size="2" color="blue">考点</font></i></p>
 
-                <p style="text-align: center;"><i>Create and use ArrayList, TreeSet, TreeMap, and ArrayDeque objects.</i></p>
+                <p style="text-align: center;"><i>Create and use ArrayList, TreeSet, TreeMap, and ArrayDeque objects.<br />
+<font size="2" color="blue">创建和使用ArrayList，TreeSet，TreeMap和ArrayDeque对象。</font><br /></i></p>
 
             </div>
         </div>
@@ -43,12 +47,16 @@
         <div class="column">
 
             <h2>Collections Overview</h2>
+<font size="2" color="blue">容器概述</font>
 
             <p>A <i>collection</i> is a generic term that refers to a container of objects.</p>
+<font size="2" color="blue">这里的<i>容器</i>泛指容器（container）对象。</font>
 
             <p>The <i>Java Collections Framework</i> is a library of classes and interfaces in the <code>java.util</code> package that provides collections with different characteristics.</p>
+<font size="2" color="blue"><i>Java容器框架（Java Collections Framework）</i>是<code>java.util</code>包下面的接口和类的集合，它们具有不同的特性。</font>
 
             <p>The most important interfaces are:</p>
+<font size="2" color="blue">主要包括以下接口：</font>
 
             <ul>
                 <li><code>Collection</code><br /> This is the base interface of the collection hierarchy and it contains methods like <code>add()</code>, <code>remove()</code>, <code>clear()</code>, and <code>size()</code>.</li>
@@ -69,12 +77,16 @@
             <h2>List</h2>
 
             <p>List is the most common collection. You use when you want to allow (or do not care if there are) duplicate elements. You can even insert <code>null</code> elements (not all collections allow it).</p>
+<font size="2" color="blue">List是常见的集合。当允许存在重复元素时可以使用它。甚至可以插入<code>null</code>元素（并不是所有集合都支持null元素）。</font>
 
             <p>Elements have an insertion order, but you can add elements at any position, since this position is based on a zero-based index, like an array.</p>
+<font size="2" color="blue">该容器的元素是有序的，但是允许在任何位置添加元素，因为它是基于zero-based索引，比如数组。</font>
 
             <p>In fact, the most used implementation, <code>ArrayList</code>, is actually implemented as an <code>Object</code> array under the hood.</p>
+<font size="2" color="blue">实际上，我们常常使用<code>ArrayList</code>实现，这是基于<code>Object</code>数组的实现类。</font>
 
             <p>The difference with using an array is that a <code>List</code> can grow automatically when elements are added. However, since it does that by copying the elements to a bigger array, adding (and removing) is slower.</p>
+<font size="2" color="blue">该实现与直接使用数组的不同之处在于，添加元素时<code>List</code>长度可以自动增长。但是，由于它会将元素复制到更大的数组中，所以添加（和删除）速度较慢。</font>
 
             <p>Here are some basic <code>List</code> operations:</p>
 
